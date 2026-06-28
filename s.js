@@ -1,7 +1,13 @@
 async function getPlanets() {
-  const response = await fetch("https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+pl_name,pl_rade,pl_bmasse,pl_eqt,sy_dist+from+pscomppars+where+pl_rade+is+not+null+and+pl_bmasse+is+not+null+and+pl_eqt+is+not+null&format=json");
+  const response = await fetch("planets.json");
   const data = await response.json();
   console.log(data);
+  const container = document.getElementById("planet-list");
+  for (const planet of data.slice(0, 10)) {
+    const card = document.createElement("div");
+    card.textContent = planet.pl_name;
+    container.appendChild(card);
+  }
 }
 
 getPlanets();
