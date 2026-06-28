@@ -16,6 +16,15 @@ h2 {
     margin: 20px;
 }
 
+h3 {
+    font-size: 3 rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 50px;
+    background-color: black;
+}
+
 .blank_space {
     margin-top: 20px;
     display: flex;
@@ -29,22 +38,24 @@ body {
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: center;
-    height: 100vh;
+    height: 80vh;
     color: white;
+    background-color: black;
 }
-/* 
+
 body, p {
     color: white;
     padding: 0px;
     position: relative;
     margin: 0px;
 }
-
+/* 
 .hero-section {
-    background-image: url('home_background.png');
+    background-color:black;
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: center;
     height: 100vh;
+    margin-top: 500px;
     background-attachment: fixed;
-} */
+}   */
