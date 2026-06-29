@@ -1,0 +1,31 @@
+#Home {
+    cursor: pointer;
+    background-color: rgb(9, 116, 116);
+    font-size: 5 rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 50px;
+
+}
+
+body {
+    background-position: center;
+    height: 80vh;
+    color: white;
+    background-color: black;
+}
+
+body, p {
+    color: white;
+    padding: 0px;
+    position: relative;
+    margin: 0px;
+}
+
+.planet_list {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    background-color: blueviolet;
+}
