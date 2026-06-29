@@ -12,7 +12,7 @@ function renderPlanets(planetArray) {
 
   for (const planet of planetArray) {
     const card = document.createElement("div");
-    card.textContent = planet.pl_name;
+    card.textContent = planet.pl_name+"Radius: "+planet.pl_rade+"\nMass: "+planet.pl_bmasse+"\nEquilibrium Temperature: "+planet.pl_eqt+"\nDistance from Earth: "+planet.sy_dist;
     container.appendChild(card);
   }
 }
