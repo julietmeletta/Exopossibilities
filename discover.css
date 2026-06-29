@@ -1,7 +1,7 @@
 #Home {
     cursor: pointer;
     background-color: rgb(9, 116, 116);
-    font-size: 5 rem;
+    font-size: 5rem;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -23,9 +23,17 @@ body, p {
     margin: 0px;
 }
 
-.planet_list {
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-    background-color: blueviolet;
+#planet_list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.planet_card {
+    background-color: #111;
+    border: 2px solid rgb(9, 116, 116);
+    border-radius: 16px;
+    padding: 20px;
+    cursor: pointer;
 }
