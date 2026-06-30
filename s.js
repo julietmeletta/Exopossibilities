@@ -26,12 +26,28 @@ function renderPlanets(planetArray) {
   }
 }
 
-function handleSearch() {
+function applyFilters() {
   const query = document.getElementById("search-input").value.toLowerCase();
-  const filtered = allPlanets.filter(planet =>
-    planet.pl_name.toLowerCase().includes(query)
-  );
+  const maxDist = parseFloat(document.getElementById("dist-filter").value);
+  const tempCategory = document.getElementById("temp-filter").value;
+
+  const filtered = allPlanets.filter(planet => {
+    const matchesName = planet.pl_name.toLowerCase().includes(query);
+    const matchesDist = !planet.sy_dist || planet.sy_dist <= maxDist;
+
+    let matchesTemp = true;
+    if (tempCategory === "cold") matchesTemp = planet.pl_eqt < 200;
+    else if (tempCategory === "habitable") matchesTemp = planet.pl_eqt >= 200 && planet.pl_eqt <= 320;
+    else if (tempCategory === "hot") matchesTemp = planet.pl_eqt > 320;
+
+    return matchesName && matchesDist && matchesTemp;
+  });
+
   renderPlanets(filtered);
+}
+
+function handleSearch() {
+  applyFilters();
 }
 
 document.getElementById("search-input").addEventListener("input", handleSearch);

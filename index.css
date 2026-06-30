@@ -64,6 +64,10 @@ body, p {
     margin: 0 auto 30px auto;
 }
 
+#Discover:hover {
+    background-color: rgb(14, 140, 140);
+}
+
 
 
 
