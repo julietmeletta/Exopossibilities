@@ -37,7 +37,7 @@ body {
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: center;
-    height: 80vh;
+    height: 70vh;
     color: white;
     background-color: black;
 }
@@ -52,15 +52,17 @@ body, p {
 #Discover {
     cursor: pointer;
     background-color: rgb(9, 116, 116);
-    font-size: 4rem;
+    font-size: 1.2rem;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding: 50px;
-
+    padding: 20px;
+    width: 100px;
+    height: 20px;
+    border-radius: 9999px;
+    z-index: 10;
+    margin: 0 auto 30px auto;
 }
-
-
 
 
 

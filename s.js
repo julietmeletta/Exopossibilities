@@ -16,10 +16,10 @@ function renderPlanets(planetArray) {
 
     card.innerHTML = `
       <h3>${planet.pl_name}</h3>
-      <p>Radius: ${planet.pl_rade}</p>
-      <p>Mass: ${planet.pl_bmasse}</p>
-      <p>Equilibrium Temperature: ${planet.pl_eqt}</p>
-      <p>Distance from Earth: ${planet.sy_dist}</p>
+      <p>Radius: ${planet.pl_rade} R⊕</p>
+      <p>Mass: ${planet.pl_bmasse} M⊕</p>
+      <p>Equilibrium Temperature: ${planet.pl_eqt} K</p>
+      <p>Distance from Earth: ${planet.sy_dist} pc</p>
     `;
 
     container.appendChild(card);
