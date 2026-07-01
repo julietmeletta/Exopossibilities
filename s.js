@@ -13,6 +13,10 @@ function renderPlanets(planetArray) {
   for (const planet of planetArray) {
     const card = document.createElement("div");
     card.classList.add("planet_card");
+    card.style.cursor = "pointer";
+    card.addEventListener("click", () => {
+     window.location.href = `planet.html?name=${encodeURIComponent(planet.pl_name)}`;
+    });
 
     card.innerHTML = `
       <h3>${planet.pl_name}</h3>
@@ -28,12 +32,13 @@ function renderPlanets(planetArray) {
 
 function applyFilters() {
   const query = document.getElementById("search-input").value.toLowerCase();
-  const maxDist = parseFloat(document.getElementById("dist-filter").value);
+  const minDist = parseFloat(document.getElementById("dist-min").value);
+  const maxDist = parseFloat(document.getElementById("dist-max").value);
   const tempCategory = document.getElementById("temp-filter").value;
 
   const filtered = allPlanets.filter(planet => {
     const matchesName = planet.pl_name.toLowerCase().includes(query);
-    const matchesDist = !planet.sy_dist || planet.sy_dist <= maxDist;
+    const matchesDist = !planet.sy_dist || (planet.sy_dist >= minDist && planet.sy_dist <= maxDist);
 
     let matchesTemp = true;
     if (tempCategory === "cold") matchesTemp = planet.pl_eqt < 200;

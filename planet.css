@@ -24,13 +24,13 @@ h2 {
 }
 
 body {
-    background-image: url('home_background.png');
+    background-image: url('planet.png');
     background-repeat: no-repeat;
     background-size: 100%;
-    background-position: center;
-    height: 90vh;
+    background-position-y: top;
+    background-position-x: center;
     color: white;
-    background-color: black;
+    background-color: rebeccapurple;
 }
 
 body, p {
@@ -40,7 +40,10 @@ body, p {
     margin: 0px;
 }
 
-#Discover {
+#Back {
+    position: fixed;
+    top: 40px;
+    left: 20px;
     cursor: pointer;
     background-color: rgb(9, 116, 116);
     font-size: 1.2rem;
@@ -52,23 +55,8 @@ body, p {
     height: 20px;
     border-radius: 9999px;
     z-index: 10;
-    margin: 0 auto 30px auto;
 }
 
-#Discover:hover {
+#Back:hover {
     background-color: rgb(14, 140, 140);
 }
-
-
-
-
-/* 
-.hero-section {
-    background-color:black;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: center;
-    height: 100vh;
-    margin-top: 500px;
-    background-attachment: fixed;
-}   */
