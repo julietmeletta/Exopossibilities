@@ -42,7 +42,7 @@ body, p {
 
 #Discover {
     cursor: pointer;
-    background-color: rgb(9, 116, 116);
+    background-color: rgb(51, 76, 103);
     font-size: 1.2rem;
     display: flex;
     flex-direction: row;
@@ -56,7 +56,7 @@ body, p {
 }
 
 #Discover:hover {
-    background-color: rgb(14, 140, 140);
+    background-color: rgb(121, 142, 174);
 }
 
 

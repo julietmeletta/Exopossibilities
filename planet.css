@@ -5,14 +5,7 @@ h1 {
     justify-content: center;
     padding: 20px, 50px;
     margin: 20px;
-}
-
-h2 {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding: 20px, 50px;
-    margin: 20px;
+    padding-bottom: 30px;
 }
 
 .blank_space {
@@ -24,20 +17,25 @@ h2 {
 }
 
 body {
-    background-image: url('planet.png');
+    background-image: url('planet2.png');
     background-repeat: no-repeat;
-    background-size: 100%;
-    background-position-y: top;
-    background-position-x: center;
+    background-size: 52%;
+    background-position: center;
     color: white;
-    background-color: rebeccapurple;
+    background-color: black;
+    min-height: 97vh;
 }
 
-body, p {
+h3 {
+    display: block;
+    width: 300px;
     color: white;
-    padding: 0px;
+    padding: 20px;
+    left: 20px;
     position: relative;
-    margin: 0px;
+    background-color: #111;
+    border: 3px solid rgb(51, 76, 103);
+    border-radius: 5px;
 }
 
 #Back {
@@ -45,7 +43,7 @@ body, p {
     top: 40px;
     left: 20px;
     cursor: pointer;
-    background-color: rgb(9, 116, 116);
+    background-color: rgb(51, 76, 103);
     font-size: 1.2rem;
     display: flex;
     flex-direction: row;
@@ -58,5 +56,5 @@ body, p {
 }
 
 #Back:hover {
-    background-color: rgb(14, 140, 140);
+    background-color: rgb(121, 142, 174);
 }

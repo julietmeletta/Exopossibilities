@@ -3,7 +3,7 @@
     top: 40px;
     left: 20px;
     cursor: pointer;
-    background-color: rgb(9, 116, 116);
+    background-color: rgb(51, 76, 103);
     font-size: 1.2rem;
     display: flex;
     flex-direction: row;
@@ -16,7 +16,7 @@
 }
 
 #Home:hover {
-    background-color: rgb(14, 140, 140);
+    background-color: rgb(121, 142, 174);
 }
 
 body {
@@ -41,10 +41,14 @@ body, p {
 
 .planet_card {
     background-color: #111;
-    border: 2px solid rgb(9, 116, 116);
+    border: 2px solid rgb(51, 76, 103);
     border-radius: 16px;
     padding: 20px;
     cursor: pointer;
+}
+
+.planet_card:hover {
+   border-color: rgb(121, 142, 174)
 }
 
 #search-input {
@@ -54,7 +58,7 @@ body, p {
     padding: 12px 20px;
     font-size: 1rem;
     border-radius: 30px;
-    border: 2px solid rgb(9, 116, 116);
+    border: 2px solid rgb(51, 76, 103);
     background-color: #111;
     color: white;
 }
@@ -84,14 +88,14 @@ body, p {
 }
 
 .filter-group input[type="range"] {
-  accent-color: rgb(9, 116, 116);
+  accent-color: rgb(51, 76, 103);
   cursor: pointer;
 }
 
 .filter-group select {
   background-color: #111;
   color: rgb(255, 255, 255);
-  border: 2px solid rgb(9, 116, 116);
+  border: 2px solid rgb(51, 76, 103);
   border-radius: 8px;
   padding: 6px 10px;
   font-size: 0.9rem;

@@ -12,10 +12,15 @@ async function loadPlanet() {
   }
 
   document.getElementById("planet-name").textContent = planet.pl_name;
-  document.getElementById("planet-radius").textContent = planet.pl_rade ?? "Unknown";
-  document.getElementById("planet-mass").textContent = planet.pl_bmasse ?? "Unknown";
-  document.getElementById("planet-temp").textContent = planet.pl_eqt ?? "Unknown";
-  document.getElementById("planet-dist").textContent = planet.sy_dist ?? "Unknown";
+  document.getElementById("planet-radius").textContent = planet.pl_rade ? parseFloat(planet.pl_rade).toFixed(2) : "Unknown";
+  document.getElementById("planet-mass").textContent = planet.pl_bmasse ? parseFloat(planet.pl_bmasse).toFixed(2) : "Unknown";
+  document.getElementById("planet-temp").textContent = planet.pl_eqt ? parseFloat(planet.pl_eqt).toFixed(2) : "Unknown";
+  document.getElementById("planet-dist").textContent = planet.sy_dist ? parseFloat(planet.sy_dist).toFixed(2) : "Unknown";
+  document.getElementById("planet-time").textContent = planet.sy_dist ? parseFloat(planet.sy_dist*3.26156).toFixed(2) : "Unknown";
+
+  if(planet.pl_eqt < 250) {
+    document.getElementById("water").textContent = "No, too cold.";
+  }
 }
 
 loadPlanet();
