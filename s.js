@@ -1,8 +1,18 @@
 let allPlanets = [];
+let habitableC = [];
+let habitableO = [];
 
 async function getPlanets() {
-  const response = await fetch("planets.json");
-  allPlanets = await response.json();
+  const [planetsRes, habitableCRes, habitableORes] = await Promise.all([
+    fetch("planets.json"),
+    fetch("habitableC.json"),
+    fetch("habitableO.json")
+  ]);
+
+  allPlanets = await planetsRes.json();
+  habitableC = await habitableCRes.json();
+  habitableO = await habitableORes.json();
+
   renderPlanets(allPlanets);
 }
 
@@ -15,7 +25,7 @@ function renderPlanets(planetArray) {
     card.classList.add("planet_card");
     card.style.cursor = "pointer";
     card.addEventListener("click", () => {
-     window.location.href = `planet.html?name=${encodeURIComponent(planet.pl_name)}`;
+      window.location.href = `planet.html?name=${encodeURIComponent(planet.pl_name)}`;
     });
 
     card.innerHTML = `
@@ -34,27 +44,29 @@ function applyFilters() {
   const query = document.getElementById("search-input").value.toLowerCase();
   const minDist = parseFloat(document.getElementById("dist-min").value);
   const maxDist = parseFloat(document.getElementById("dist-max").value);
-  const tempCategory = document.getElementById("temp-filter").value;
+  const habitability = document.getElementById("temp-filter").value;
 
   const filtered = allPlanets.filter(planet => {
     const matchesName = planet.pl_name.toLowerCase().includes(query);
     const matchesDist = !planet.sy_dist || (planet.sy_dist >= minDist && planet.sy_dist <= maxDist);
 
-    let matchesTemp = true;
-    if (tempCategory === "cold") matchesTemp = planet.pl_eqt < 200;
-    else if (tempCategory === "habitable") matchesTemp = planet.pl_eqt >= 200 && planet.pl_eqt <= 320;
-    else if (tempCategory === "hot") matchesTemp = planet.pl_eqt > 320;
+    let matchesHabitability = true;
+    if (habitability === "habitableC") {
+      matchesHabitability = habitableC.some(p => p.pl_name === planet.pl_name);
+    } else if (habitability === "habitableO") {
+      matchesHabitability = habitableO.some(p => p.pl_name === planet.pl_name);
+    } else if (habitability === "not-habitable") {
+      matchesHabitability = !habitableC.some(p => p.pl_name === planet.pl_name) &&
+                            !habitableO.some(p => p.pl_name === planet.pl_name);
+    }
 
-    return matchesName && matchesDist && matchesTemp;
+    return matchesName && matchesDist && matchesHabitability;
   });
 
   renderPlanets(filtered);
 }
 
-function handleSearch() {
-  applyFilters();
-}
-
-document.getElementById("search-input").addEventListener("input", handleSearch);
+document.getElementById("search-input").addEventListener("input", applyFilters);
+document.getElementById("temp-filter").addEventListener("change", applyFilters);
 
 getPlanets();

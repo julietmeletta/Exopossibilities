@@ -24,13 +24,13 @@
     </div>
   </div>
   <div class="filter-group">
-    <label>Temperature</label>
-    <select id="temp-filter" onchange="applyFilters()">
-      <option value="any">Any</option>
-      <option value="cold">Too Cold (below 200K)</option>
-      <option value="habitable">Possibly habitable (200–320K)</option>
-      <option value="hot">Too Hot (above 320K)</option>
-    </select>
+    <label>Habitability</label>
+    <select id="temp-filter">
+  <option value="all">All</option>
+  <option value="habitableC">Conservative Habitable</option>
+  <option value="habitableO">Optimistic Habitable</option>
+  <option value="not-habitable">Not Habitable</option>
+</select>
   </div>
 </div>
         <div id = "planet_list"></div>
