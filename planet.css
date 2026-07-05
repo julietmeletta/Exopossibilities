@@ -30,7 +30,8 @@ h3 {
     background-color: #111;
     border: 3px solid rgb(51, 76, 103);
     border-radius: 5px;
-    font-family: "Rubik Dirt", system-ui;
+    font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
 }
