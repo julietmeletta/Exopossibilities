@@ -30,10 +30,10 @@ function renderPlanets(planetArray) {
 
     card.innerHTML = `
       <h3>${planet.pl_name}</h3>
-      <p>Radius: ${planet.pl_rade} R⊕</p>
-      <p>Mass: ${planet.pl_bmasse} M⊕</p>
-      <p>Equilibrium Temperature: ${planet.pl_eqt} K</p>
-      <p>Distance from Earth: ${planet.sy_dist} pc</p>
+      <p>Radius: ${parseFloat(planet.pl_rade).toFixed(2)} R⊕</p>
+      <p>Mass: ${parseFloat(planet.pl_bmasse).toFixed(2)} M⊕</p>
+      <p>Equilibrium Temperature: ${parseFloat(planet.pl_eqt).toFixed(2)} K</p>
+      <p>Distance from Earth: ${parseFloat(planet.sy_dist).toFixed(2)} pc</p>
     `;
 
     container.appendChild(card);
