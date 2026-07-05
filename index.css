@@ -15,6 +15,38 @@ h2 {
     margin: 20px;
 }
 
+.info-card {
+    max-width: 800px;
+    margin: 40px auto 60px auto;
+    padding: 30px 40px;
+    background-color: rgba(20, 20, 30, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    color: rgb(230, 230, 230);
+}
+
+.info-card h3 {
+    font-size: 1.6rem;
+    margin: 0 0 10px 0;
+}
+
+.info-card h4 {
+    font-size: 1.2rem;
+    font-weight: normal;
+    font-style: italic;
+    color: rgb(180, 190, 210);
+    margin: 0 0 20px 0;
+}
+
+.info-card p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    letter-spacing: 0.3px;
+    margin: 0;
+}
+
 .blank_space {
     margin-top: 20px;
     display: flex;
@@ -25,7 +57,7 @@ h2 {
 
 body {
     background-image: url('home_background.png');
-    background-repeat: no-repeat;
+    background-repeat: repeat-y;
     background-size: 100%;
     background-position: center;
     height: 90vh;

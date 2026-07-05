@@ -3,32 +3,23 @@ h1 {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding: 20px, 50px;
     margin: 20px;
-    padding-bottom: 30px;
-}
-
-.blank_space {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-    padding: 60px;
 }
 
 body {
     background-image: url('planet2.png');
     background-repeat: no-repeat;
-    background-size: 52%;
+    background-size: 50%;
     background-position: center;
     color: white;
     background-color: black;
-    min-height: 97vh;
+    min-height: 95vh;
 }
 
 h3 {
     display: block;
-    width: 300px;
+    max-width: 300px;
+    width: 100%;
     color: white;
     margin: 10px;
     padding: 20px;
@@ -41,10 +32,9 @@ h3 {
 #planet-layout {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  align-items: start;
+  align-items: center;
   margin: 0px;
   padding: 0px;
-  min-height: 10vh;
 }
 
 #left-col, #right-col {
@@ -52,6 +42,16 @@ h3 {
   flex-direction: column;
   padding: 0px;
   margin: 0px;
+}
+
+#left-col {
+    align-items: flex-start;
+    padding-left: 10px;
+}
+
+#right-col {
+    align-items: flex-end;
+    padding-right: 10px;
 }
 
 #Back {
