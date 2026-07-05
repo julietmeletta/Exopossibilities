@@ -6,7 +6,7 @@ I created a website and named it Exopossibilities, basically blending the word p
 Thanks for reading and have fun exploring my website!
 
 **Demo Link:**
-[Try Here!](https://julietmeletta.github.io/Exopossibilities/index.html)
+[Try Here!](https://julietmeletta.github.io/Exopossibilities/)
 
 **AI Notice:**
 AI helped me with most of the JavaScript since this is my first project ever using JS. I'm hoping that this has helped me learn how some basic JS works so that for my next project I will be able to do it myself. Also used for couple of features that were new to me and some polishing with appearance. 
