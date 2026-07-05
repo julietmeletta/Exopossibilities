@@ -69,6 +69,6 @@ function applyFilters() {
 getPlanets();
 
 const searchInput = document.getElementById("search-input");
-const tempFilter = document.getElementById("temp-filter");
+const habitableFilter = document.getElementById("habitable-filter");
 if (searchInput) searchInput.addEventListener("input", applyFilters);
-if (tempFilter) tempFilter.addEventListener("change", applyFilters);
+if (habitableFilter) habitableFilter.addEventListener("change", applyFilters);
