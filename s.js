@@ -66,7 +66,9 @@ function applyFilters() {
   renderPlanets(filtered);
 }
 
-document.getElementById("search-input").addEventListener("input", applyFilters);
-document.getElementById("temp-filter").addEventListener("change", applyFilters);
-
 getPlanets();
+
+const searchInput = document.getElementById("search-input");
+const tempFilter = document.getElementById("temp-filter");
+if (searchInput) searchInput.addEventListener("input", applyFilters);
+if (tempFilter) tempFilter.addEventListener("change", applyFilters);
