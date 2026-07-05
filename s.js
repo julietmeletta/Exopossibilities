@@ -44,7 +44,7 @@ function applyFilters() {
   const query = document.getElementById("search-input").value.toLowerCase();
   const minDist = parseFloat(document.getElementById("dist-min").value);
   const maxDist = parseFloat(document.getElementById("dist-max").value);
-  const habitability = document.getElementById("temp-filter").value;
+  const habitability = document.getElementById("habitable-filter").value;
 
   const filtered = allPlanets.filter(planet => {
     const matchesName = planet.pl_name.toLowerCase().includes(query);

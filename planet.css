@@ -4,6 +4,9 @@ h1 {
     flex-direction: row;
     justify-content: center;
     margin: 20px;
+    font-family: "Rubik Glitch", system-ui;
+    font-weight: 400;
+    font-style: normal;
 }
 
 body {

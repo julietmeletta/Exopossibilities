@@ -13,6 +13,9 @@
     height: 20px;
     border-radius: 9999px;
     z-index: 10;
+    font-family: "Rubik Dirt", system-ui;
+  font-weight: 400;
+  font-style: normal;
 }
 
 #Home:hover {
@@ -27,9 +30,20 @@ body {
     margin-top: 30px;
 }
 
+h3 {
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+}
+
 body, p {
     color: white;
     position: relative;
+    font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 #planet_list {
@@ -61,6 +75,10 @@ body, p {
     border: 2px solid rgb(51, 76, 103);
     background-color: #111;
     color: white;
+    font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 /* #search-input:focus {} */
@@ -80,6 +98,10 @@ body, p {
   flex-direction: column;
   gap: 6px;
   min-width: 180px;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .filter-group label {
@@ -100,4 +122,11 @@ body, p {
   padding: 6px 10px;
   font-size: 0.9rem;
   cursor: pointer;
+}
+
+#habitable-filter {
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
