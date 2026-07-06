@@ -24,7 +24,8 @@ h3 {
     max-width: 300px;
     width: 100%;
     color: white;
-    margin: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
     padding: 20px;
     position: relative;
     background-color: #111;
@@ -49,6 +50,7 @@ h3 {
   flex-direction: column;
   padding: 0px;
   margin: 0px;
+  zoom: 92%;
 }
 
 #left-col {
