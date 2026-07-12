@@ -14,6 +14,10 @@ async function loadPlanet() {
   
   const planet = allPlanets.find(p => p.pl_name === name);
 
+  const imgEl = document.getElementById("planet-image");
+  imgEl.src = getPlanetImageUrl(planet);
+  imgEl.alt = `Artist's concept of ${planet.pl_name}`;
+
   if (!planet) {
     document.getElementById("planet-name").innerHTML = "Planet not found.";
     return;
@@ -82,3 +86,54 @@ async function loadPlanet() {
 }
 
 loadPlanet();
+
+const PLANET_IMAGE_POOL = {
+  "terrestrial": [1, 2, 3],
+  "super earth": [1, 2, 3, 4, 5, 6, 7],
+  "neptune-like": [1, 2, 3, 4, 5, 6, 7],
+  "gas giant": [1, 2, 3, 4, 5, 6, 7]
+};
+
+const IMAGE_BASE =
+  "https://assets.science.nasa.gov/content/dam/science/astro/exo-explore/assets/content/planets";
+
+// Classify using the same rough radius/mass cutoffs NASA uses
+function classifyPlanet(planet) {
+  const radius = parseFloat(planet.pl_rade);
+  const mass = parseFloat(planet.pl_bmasse);
+
+  if (!isNaN(radius)) {
+    if (radius < 1.25) return "terrestrial";
+    if (radius < 2) return "super earth";
+    if (radius < 6) return "neptune-like";
+    return "gas giant";
+  }
+  // fall back to mass if radius is missing
+  if (!isNaN(mass)) {
+    if (mass < 2) return "terrestrial";
+    if (mass < 10) return "super earth";
+    if (mass < 50) return "neptune-like";
+    return "gas giant";
+  }
+  return "terrestrial"; // last-resort default
+}
+
+function hashString(str) {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = (hash << 5) - hash + str.charCodeAt(i);
+    hash |= 0;
+  }
+  return Math.abs(hash);
+}
+
+function typeToSlug(type) {
+  return type.replace(/[^a-z]/gi, "").toLowerCase();
+}
+
+function getPlanetImageUrl(planet) {
+  const category = classifyPlanet(planet);
+  const pool = PLANET_IMAGE_POOL[category];
+  const number = pool[hashString(planet.pl_name) % pool.length];
+  return `${IMAGE_BASE}/${typeToSlug(category)}-${number}.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg`;
+}
