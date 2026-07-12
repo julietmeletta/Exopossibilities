@@ -87,53 +87,41 @@ async function loadPlanet() {
 
 loadPlanet();
 
-const PLANET_IMAGE_POOL = {
-  "terrestrial": [1],
-  "super earth": [4],
-  "neptune-like": [2],
-  "gas giant": [4]
+const PLANET_IMAGES = {
+  "terrestrial": "terrestrialImg.jpeg",
+  "super earth": "superEarthImg.jpeg",
+  "mini-neptune": "miniNeptuneImg.jpg",
+  "neptune-like": "neptuneLikeImg.jpeg",
+  "gas giant": "gasGiantImg.jpeg",
+  "hot jupiter": "hotJupiterImg.jpg"
 };
 
-const IMAGE_BASE =
-  "https://assets.science.nasa.gov/content/dam/science/astro/exo-explore/assets/content/planets";
-
 function classifyPlanet(planet) {
-  const mass = parseFloat(planet.pl_bmasse); 
-  const radius = parseFloat(planet.pl_rade); 
+  const radius = parseFloat(planet.pl_rade);
+  const mass = parseFloat(planet.pl_bmasse);
+  const temp = parseFloat(planet.pl_eqt);
+
+  if (!isNaN(radius)) {
+    if (radius < 1.0) return "terrestrial";
+    if (radius < 2) return "super earth";
+    if (radius < 4) return "mini-neptune";
+    if (radius < 6) return "neptune-like";
+    if (!isNaN(temp) && temp > 1000) return "hot jupiter";
+    return "gas giant";
+  }
 
   if (!isNaN(mass)) {
     if (mass < 2) return "terrestrial";
     if (mass < 10) return "super earth";
-    if (mass < 50) return "neptune-like";   
-    return "gas giant";       
-  }
-  
-  if (!isNaN(radius)) {
-    if (radius < 1.0) return "terrestrial";
-    if (radius < 2) return "super earth";
-    if (radius < 6) return "neptune-like";
+    if (mass < 17) return "mini-neptune";
+    if (mass < 50) return "neptune-like";
+    if (!isNaN(temp) && temp > 1000) return "hot jupiter";
     return "gas giant";
   }
+
   return "terrestrial";
 }
 
-function typeToSlug(type) {
-  return type.replace(/[^a-z]/gi, "").toLowerCase();
-}
-
-function hashString(str) {
-  let hash = 0;
-  for (let i = 0; i < str.length; i++) {
-    hash = (hash << 5) - hash + str.charCodeAt(i);
-    hash |= 0;
-  }
-  return Math.abs(hash);
-}
-
 function getPlanetImageUrl(planet) {
-  const category = classifyPlanet(planet);
-  const pool = PLANET_IMAGE_POOL[category];
-  const number = pool[hashString(planet.pl_name) % pool.length];
-  const slug = typeToSlug(category);
-  return `${IMAGE_BASE}/${slug}-${number}.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg`;
+  return PLANET_IMAGES[classifyPlanet(planet)];
 }
