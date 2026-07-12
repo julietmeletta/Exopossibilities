@@ -17,6 +17,7 @@ body {
     background-repeat: no-repeat;
     margin-top: 30px;
     background-size: cover;
+    max-height: 94vh;
 }
 
 h3 {

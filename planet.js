@@ -88,34 +88,37 @@ async function loadPlanet() {
 loadPlanet();
 
 const PLANET_IMAGE_POOL = {
-  "terrestrial": [1, 2, 3],
-  "super earth": [1, 2, 3, 4, 5, 6, 7],
-  "neptune-like": [1, 2, 3, 4, 5, 6, 7],
-  "gas giant": [1, 2, 3, 4, 5, 6, 7]
+  "terrestrial": [1],
+  "super earth": [4],
+  "neptune-like": [2],
+  "gas giant": [4]
 };
 
 const IMAGE_BASE =
   "https://assets.science.nasa.gov/content/dam/science/astro/exo-explore/assets/content/planets";
 
-// Classify using the same rough radius/mass cutoffs NASA uses
 function classifyPlanet(planet) {
-  const radius = parseFloat(planet.pl_rade);
-  const mass = parseFloat(planet.pl_bmasse);
+  const mass = parseFloat(planet.pl_bmasse); 
+  const radius = parseFloat(planet.pl_rade); 
 
+  if (!isNaN(mass)) {
+    if (mass < 2) return "terrestrial";
+    if (mass < 10) return "super earth";
+    if (mass < 50) return "neptune-like";   
+    return "gas giant";       
+  }
+  
   if (!isNaN(radius)) {
-    if (radius < 1.25) return "terrestrial";
+    if (radius < 1.0) return "terrestrial";
     if (radius < 2) return "super earth";
     if (radius < 6) return "neptune-like";
     return "gas giant";
   }
-  // fall back to mass if radius is missing
-  if (!isNaN(mass)) {
-    if (mass < 2) return "terrestrial";
-    if (mass < 10) return "super earth";
-    if (mass < 50) return "neptune-like";
-    return "gas giant";
-  }
-  return "terrestrial"; // last-resort default
+  return "terrestrial";
+}
+
+function typeToSlug(type) {
+  return type.replace(/[^a-z]/gi, "").toLowerCase();
 }
 
 function hashString(str) {
@@ -127,13 +130,10 @@ function hashString(str) {
   return Math.abs(hash);
 }
 
-function typeToSlug(type) {
-  return type.replace(/[^a-z]/gi, "").toLowerCase();
-}
-
 function getPlanetImageUrl(planet) {
   const category = classifyPlanet(planet);
   const pool = PLANET_IMAGE_POOL[category];
   const number = pool[hashString(planet.pl_name) % pool.length];
-  return `${IMAGE_BASE}/${typeToSlug(category)}-${number}.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg`;
+  const slug = typeToSlug(category);
+  return `${IMAGE_BASE}/${slug}-${number}.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg`;
 }
