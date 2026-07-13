@@ -4,9 +4,9 @@ let habitableO = [];
 
 async function getPlanets() {
   const [planetsRes, habitableCRes, habitableORes] = await Promise.all([
-    fetch("planets.json"),
-    fetch("habitableC.json"),
-    fetch("habitableO.json")
+    fetch("jsonFiles/planets.json"),
+    fetch("jsonFiles/habitableC.json"),
+    fetch("jsonFiles/habitableO.json")
   ]);
 
   allPlanets = await planetsRes.json();

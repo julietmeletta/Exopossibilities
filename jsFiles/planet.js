@@ -3,9 +3,9 @@ async function loadPlanet() {
   const name = params.get("name");
 
   const [planetsRes, habitableCRes, habitableORes] = await Promise.all([
-    fetch("planets.json"),
-    fetch("habitableC.json"),
-    fetch("habitableO.json")
+    fetch("jsonFiles/planets.json"),
+    fetch("jsonFiles/habitableC.json"),
+    fetch("jsonFiles/habitableO.json")
   ]);
 
   const allPlanets = await planetsRes.json();

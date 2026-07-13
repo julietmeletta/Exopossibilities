@@ -1,10 +1,10 @@
 const PLANET_IMAGES = {
-  "terrestrial": "terrestrialImg.jpeg",
-  "super earth": "superEarthImg.jpeg",
-  "mini-neptune": "miniNeptuneImg.jpg",
-  "neptune-like": "neptuneLikeImg.jpeg",
-  "gas giant": "gasGiantImg.jpeg",
-  "hot jupiter": "hotJupiterImg.jpg"
+  "terrestrial": "images/terrestrialImg.jpeg",
+  "super earth": "images/superEarthImg.jpeg",
+  "mini-neptune": "images/miniNeptuneImg.jpg",
+  "neptune-like": "images/neptuneLikeImg.jpeg",
+  "gas giant": "images/gasGiantImg.jpeg",
+  "hot jupiter": "images/hotJupiterImg.jpg"
 };
 
 function classifyPlanet(planet) {
