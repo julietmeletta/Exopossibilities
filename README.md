@@ -3,7 +3,7 @@ My Stardance project 2026
 My first ever website!
 
 **Summary of this Website:**
-I created a website and named it Exopossibilities, basically blending the word possibilites into the word Exoplanets. On my website, the user can navigate to the Discover page, where they see a list of every exoplanet in NASA's archive(over 5,000). They can then explore info on each planet, search for a specific planet, filter to see planets that fit specific criteria, i.e. Each box containing the planet's name and info is able to be clicked on, which sends the user to a page focused solely on that planet. Each planet's page displays the planet's info, how long it would take to get to the planet, how living on the planet would affect the human body, and what would be needed to live on that planet, if possible at all. 
+I created a website and named it Exopossibilities, basically blending the word possibilites into the word Exoplanets. On my website, the user can navigate to the Discover page, where they see a list of every exoplanet in NASA's archive(over 5,000). They can then explore info on each planet, search for a specific planet, filter to see planets that fit specific criteria, i.e. Each box containing the planet's name and info is able to be clicked on, which sends the user to a page focused solely on that planet. Each planet's page displays the planet's info, how long it would take to get to the planet, how living on the planet would affect the human body, and what would be needed to live on that planet, if possible at all. The images tied to the planet are decided based off which category it falls into (terrestrial, super earth, mini-neptune, neptune-like, gas giant, or hot jupiter).
 Thanks for reading and have fun exploring my website!
 
 **Demo Link:**
