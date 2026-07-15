@@ -14,10 +14,12 @@ async function getPlanets() {
   habitableO = await habitableORes.json();
 
   renderPlanets(allPlanets);
+  renderPlanetOfTheDay(allPlanets);
 }
 
 function renderPlanets(planetArray) {
   const container = document.getElementById("planet_list");
+  if (!container) return;
   container.innerHTML = "";
 
   for (const planet of planetArray) {
@@ -76,7 +78,7 @@ getPlanets();
 const randomPlanet = document.getElementById("Random");
 const searchInput = document.getElementById("search-input");
 const habitableFilter = document.getElementById("habitable-filter");
-randomPlanet.addEventListener("click", () => {getRandomPlanet();});
+if (randomPlanet) randomPlanet.addEventListener("click", () => {getRandomPlanet();});
 if (searchInput) searchInput.addEventListener("input", applyFilters);
 if (habitableFilter) habitableFilter.addEventListener("change", applyFilters);
 
@@ -89,4 +91,39 @@ async function getRandomPlanet() {
   const randomItem = filtered[Math.floor(Math.random() * filtered.length)];
   window.location.href = `planet.html?name=${encodeURIComponent(randomItem.pl_name)}`;
   return randomItem;
+}
+
+function getPlanetOfTheDay(planets) {
+  const today = new Date();
+  const dateString = `${today.getFullYear()}-${today.getMonth()}-${today.getDate()}`;
+  let seed = 0;
+  for (let i = 0; i < dateString.length; i++) {
+    seed = dateString.charCodeAt(i) + ((seed << 5) - seed);
+  }
+  const index = Math.abs(seed) % planets.length;
+  return planets[index];
+}
+
+function renderPlanetOfTheDay(planets) {
+  const container = document.getElementById("planet-of-the-day");
+
+  const planet = getPlanetOfTheDay(planets);
+  const imgSrc = getPlanetImageUrl(planet);
+
+  container.innerHTML = `
+    <h3>Planet of the Day</h3>
+    <div class="planet-type-wrapper">
+      <img src="${imgSrc}" alt="${planet.pl_name} type" class="planet-type-img">
+    </div>
+    <h4>${planet.pl_name}</h4>
+    <p>Radius: ${parseFloat(planet.pl_rade).toFixed(2)} R⊕</p>
+    <p>Mass: ${parseFloat(planet.pl_bmasse).toFixed(2)} M⊕</p>
+    <p>Equilibrium Temperature: ${parseFloat(planet.pl_eqt).toFixed(2)} K</p>
+    <p>Distance from Earth: ${parseFloat(planet.sy_dist).toFixed(2)} pc</p>
+  `;
+
+  container.style.cursor = "pointer";
+  container.addEventListener("click", () => {
+    window.location.href = `planet.html?name=${encodeURIComponent(planet.pl_name)}`;
+  });
 }
