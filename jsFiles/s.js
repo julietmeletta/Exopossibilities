@@ -2,6 +2,26 @@ let allPlanets = [];
 let habitableC = [];
 let habitableO = [];
 
+function showSkeletons(container, count = 32) {
+  container.innerHTML = "";
+  for (let i = 0; i < count; i++) {
+    const card = document.createElement("div");
+    card.className = "skeleton-card";
+    card.innerHTML = `
+      <div class="skeleton-image"></div>
+      <div class="skeleton-line title"></div>
+      <div class="skeleton-line short"></div>
+      <div class="skeleton-line short"></div>
+      <div class="skeleton-line"></div>
+      <div class="skeleton-line"></div>
+    `;
+    container.appendChild(card);
+  }
+}
+
+const planetList = document.getElementById("planet_list");
+showSkeletons(planetList);
+
 async function getPlanets() {
   const [planetsRes, habitableCRes, habitableORes] = await Promise.all([
     fetch("jsonFiles/planets.json"),
@@ -38,7 +58,7 @@ function renderPlanets(planetArray) {
   <h3>${planet.pl_name}</h3>
   <p>Radius: ${parseFloat(planet.pl_rade).toFixed(2)} R⊕</p>
   <p>Mass: ${parseFloat(planet.pl_bmasse).toFixed(2)} M⊕</p>
-  <p>Equilibrium Temperature: ${parseFloat(planet.pl_eqt).toFixed(2)} K</p>
+  <p>Equilibrium Temperature: ${parseFloat(planet.pl_eqt).toFixed(0)} K</p>
   <p>Distance from Earth: ${parseFloat(planet.sy_dist).toFixed(2)} pc</p>
 `;
 

@@ -197,3 +197,60 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+.skeleton-card {
+  background: #111;
+  position: relative;
+  background-color: #111;
+  border: 2px solid rgb(51, 76, 103);
+  width: 260px;
+  height: 260px;
+  border-radius: 16px;
+  padding: 15px;
+  overflow: hidden;
+}
+
+.skeleton-line, .skeleton-line.title {
+  display: flex;
+  flex-direction: column;
+  height: 15px;
+  border-radius: 4px;
+  background: rgb(51, 76, 103);
+  margin-top: 30px;
+  margin-bottom: 30px;
+  position: relative;
+  overflow: hidden;
+  row-gap: 5px;
+}
+
+.skeleton-line.title {
+  margin-bottom: 36px;
+  height: 25px;
+}
+
+.skeleton-image {
+  position: absolute;
+  top: 60px;
+  right: 30px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  display: flex;
+  background: rgb(51, 76, 103);
+}
+
+.skeleton-line::after {
+  content: "";
+  position: absolute;
+  top: 0; left: -150%;
+  width: 150%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+  animation: shimmer 1.4s infinite;
+}
+
+@keyframes shimmer {
+  100% { left: 150%; }
+}
+
+.skeleton-line.title { width: 50%; height: 18px; }
+.skeleton-line.short { width: 30%; }
