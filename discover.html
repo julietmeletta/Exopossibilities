@@ -9,23 +9,21 @@
     </head>
     <body>
         <span id = "Home" onclick = "window.location.href = 'index.html'">Home</span><br>
-        <input type="Search" id="search-input" placeholder="Search by planet name..."><br>
+        <input type="Search" id="search-input" placeholder="Search by planet name..." autocomplete="off"><br>
         <div id="filters">
          <div class="filter-group">
-          <label>Distance from Earth: <span id="dist-min-val">0</span>–<span id="dist-max-val">5000</span> parsecs</label>
-          <div class="slider-row">
-            <input type="range" id="dist-min" min="0" max="5000" value="0" oninput="
-              if (+this.value > +document.getElementById('dist-max').value)
-                this.value = document.getElementById('dist-max').value;
-              document.getElementById('dist-min-val').textContent = this.value;
-             applyFilters()">
-           <input type="range" id="dist-max" min="0" max="5000" value="5000" oninput="
-             if (+this.value < +document.getElementById('dist-min').value)
-               this.value = document.getElementById('dist-min').value;
-              document.getElementById('dist-max-val').textContent = this.value;
-             applyFilters()">
-          </div>
-        </div>
+  <label>Distance from Earth (parsecs)</label>
+  <div class="dist-row">
+    Min: <input type="number" id="dist-min" min="0" max="5000" value="0" oninput="
+      if (+this.value > +document.getElementById('dist-max').value)
+        this.value = document.getElementById('dist-max').value;
+      applyFilters()">
+    Max: <input type="number" id="dist-max" min="0" max="5000" value="5000" oninput="
+      if (+this.value < +document.getElementById('dist-min').value)
+        this.value = document.getElementById('dist-min').value;
+      applyFilters()">
+  </div>
+</div>
        <div class="filter-group">
           <label>Habitability</label>
           <select id="habitable-filter">
