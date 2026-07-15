@@ -121,17 +121,26 @@ body, p {
   font-style: normal;
 }
 
-#planet-of-the-day {
+.features {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  justify-content: center;
+}
+
+#planet-of-the-day, #quiz {
     position: relative;
     background-color: #111;
     border: 2px solid rgb(51, 76, 103);
     width: 300px;
     border-radius: 16px;
     padding: 15px;
-    margin: 30px auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    align-content: center;
 }
 
-.planet-of-the-day:hover {
+#planet-of-the-day:hover, #quiz:hover {
    border-color: rgb(121, 142, 174)
 }
 

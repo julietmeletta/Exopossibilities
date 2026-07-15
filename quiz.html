@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <style>
+     @import url('https://fonts.googleapis.com/css2?family=Rubik+Dirt&family=Rubik+Doodle+Shadow&family=Rubik+Glitch&family=Rubik+Mono+One&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+    </style>
+    <head>
+        <title>Exopossibilities-Quiz</title>
+        <link rel = "stylesheet" type = "text/css" href = "quiz.css"/>
+    </head>
+    <body>
+        <span id = "Home" onclick = "window.location.href = 'index.html'">Home</span><br>
+        <div class="card">
+            <h1>Begin&nbsp;&nbsp;here!</h1>
+            <div class="question-list">
+                <div class="question-card" data-key="temperature">
+                    <h2>#1. What temperature do you prefer?</h2>
+                    <h3 data-value="0">&nbsp;&nbsp;&nbsp;&nbsp;• Freezing</h3>
+                    <h3 data-value="1">&nbsp;&nbsp;&nbsp;&nbsp;• Chilly</h3>
+                    <h3 data-value="2">&nbsp;&nbsp;&nbsp;&nbsp;• Somewhere in the middle</h3>
+                    <h3 data-value="3">&nbsp;&nbsp;&nbsp;&nbsp;• Warm</h3>
+                    <h3 data-value="4">&nbsp;&nbsp;&nbsp;&nbsp;• Hot</h3>
+                    <h3 data-value="">&nbsp;&nbsp;&nbsp;&nbsp;• No preference</h3>
+                </div>
+                <div class="question-card" data-key="distance">
+                    <h2>#2. How far from home do you want to be?</h2>
+                    <h3 data-value="2">&nbsp;&nbsp;&nbsp;&nbsp;• Really far</h3>
+                    <h3 data-value="0">&nbsp;&nbsp;&nbsp;&nbsp;• Close by</h3>
+                    <h3 data-value="1">&nbsp;&nbsp;&nbsp;&nbsp;• Somewhere in the middle</h3>
+                    <h3 data-value="">&nbsp;&nbsp;&nbsp;&nbsp;• No preference</h3>
+                </div>
+                <div class="question-card" data-key="year">
+                    <h2>#3. How long do you want a year to last?</h2>
+                    <h3 data-value="0">&nbsp;&nbsp;&nbsp;&nbsp;• Less than 10 Earth days</h3>
+                    <h3 data-value="1">&nbsp;&nbsp;&nbsp;&nbsp;• 10-100 Earth days</h3>
+                    <h3 data-value="2">&nbsp;&nbsp;&nbsp;&nbsp;• 101-1000 Earth days</h3>
+                    <h3 data-value="3">&nbsp;&nbsp;&nbsp;&nbsp;• Over 1000 Earth days</h3>
+                    <h3 data-value="">&nbsp;&nbsp;&nbsp;&nbsp;• No preference</h3>
+                </div>
+                <div class="question-card" data-key="daynight">
+                    <h2>#4. Which statement resonates the most with you?</h2>
+                    <h3 data-value="0">&nbsp;&nbsp;&nbsp;&nbsp;• I wish the sun would never set</h3>
+                    <h3 data-value="1">&nbsp;&nbsp;&nbsp;&nbsp;• I wish it was always night time</h3>
+                    <h3 data-value="2">&nbsp;&nbsp;&nbsp;&nbsp;• I like the balance between day and night</h3>
+                    <h3 data-value="">&nbsp;&nbsp;&nbsp;&nbsp;• No preference</h3>
+                </div>
+                <div class="question-card" data-key="gravity">
+                    <h2>#5. How do you feel about gravity?</h2>
+                    <h3 data-value="2">&nbsp;&nbsp;&nbsp;&nbsp;• I want more gravity than Earth</h3>
+                    <h3 data-value="0">&nbsp;&nbsp;&nbsp;&nbsp;• I want less gravity than Earth</h3>
+                    <h3 data-value="1">&nbsp;&nbsp;&nbsp;&nbsp;• I like Earth's gravity and want something similar</h3>
+                    <h3 data-value="">&nbsp;&nbsp;&nbsp;&nbsp;• No preference</h3>
+                </div>
+            </div>
+            <button id="submit-quiz"><h3>See my planets</h3></button>
+        </div>
+        <div id="quiz-results"></div>
+        <script src="jsFiles/img.js"></script>
+        <script src="jsFiles/quiz.js"></script>
+    </body>
+</html>
