@@ -68,11 +68,25 @@ function applyFilters() {
   });
 
   renderPlanets(filtered);
+  return filtered;
 }
 
 getPlanets();
 
+const randomPlanet = document.getElementById("Random");
 const searchInput = document.getElementById("search-input");
 const habitableFilter = document.getElementById("habitable-filter");
+randomPlanet.addEventListener("click", () => {getRandomPlanet();});
 if (searchInput) searchInput.addEventListener("input", applyFilters);
 if (habitableFilter) habitableFilter.addEventListener("change", applyFilters);
+
+async function getRandomPlanet() {
+  const filtered = applyFilters();
+  if (!filtered.length) {
+    alert("No planets match the current filters.");
+    return;
+  }
+  const randomItem = filtered[Math.floor(Math.random() * filtered.length)];
+  window.location.href = `planet.html?name=${encodeURIComponent(randomItem.pl_name)}`;
+  return randomItem;
+}

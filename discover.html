@@ -11,31 +11,34 @@
         <span id = "Home" onclick = "window.location.href = 'index.html'">Home</span><br>
         <input type="Search" id="search-input" placeholder="Search by planet name..."><br>
         <div id="filters">
-  <div class="filter-group">
-    <label>Distance from Earth: <span id="dist-min-val">0</span>–<span id="dist-max-val">5000</span> parsecs</label>
-    <div class="slider-row">
-      <input type="range" id="dist-min" min="0" max="5000" value="0" oninput="
-        if (+this.value > +document.getElementById('dist-max').value)
-          this.value = document.getElementById('dist-max').value;
-        document.getElementById('dist-min-val').textContent = this.value;
-        applyFilters()">
-      <input type="range" id="dist-max" min="0" max="5000" value="5000" oninput="
-        if (+this.value < +document.getElementById('dist-min').value)
-          this.value = document.getElementById('dist-min').value;
-        document.getElementById('dist-max-val').textContent = this.value;
-        applyFilters()">
-    </div>
-  </div>
-  <div class="filter-group">
-    <label>Habitability</label>
-    <select id="habitable-filter">
-  <option value="all">All</option>
-  <option value="habitableC">Conservative Habitable</option>
-  <option value="habitableO">Optimistic Habitable</option>
-  <option value="not-habitable">Not Habitable</option>
-</select>
-  </div>
-</div>
+         <div class="filter-group">
+          <label>Distance from Earth: <span id="dist-min-val">0</span>–<span id="dist-max-val">5000</span> parsecs</label>
+          <div class="slider-row">
+            <input type="range" id="dist-min" min="0" max="5000" value="0" oninput="
+              if (+this.value > +document.getElementById('dist-max').value)
+                this.value = document.getElementById('dist-max').value;
+              document.getElementById('dist-min-val').textContent = this.value;
+             applyFilters()">
+           <input type="range" id="dist-max" min="0" max="5000" value="5000" oninput="
+             if (+this.value < +document.getElementById('dist-min').value)
+               this.value = document.getElementById('dist-min').value;
+              document.getElementById('dist-max-val').textContent = this.value;
+             applyFilters()">
+          </div>
+        </div>
+       <div class="filter-group">
+          <label>Habitability</label>
+          <select id="habitable-filter">
+       <option value="all">All</option>
+       <option value="habitableC">Conservative Habitable</option>
+       <option value="habitableO">Optimistic Habitable</option>
+       <option value="not-habitable">Not Habitable</option>
+      </select>
+        </div>
+        <div class="filter-group">
+          <span id="Random">Go to random planet</span>
+        </div>
+        </div>
         <div id = "planet_list"></div>
         <script src="jsFiles/img.js"></script>
         <script src="jsFiles/s.js"></script>
