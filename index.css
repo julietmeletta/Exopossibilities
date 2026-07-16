@@ -154,3 +154,9 @@ body {
   from { opacity: 0; }
   to { opacity: 1; }
 }
+
+@media (max-width: 600px) {
+  h1 { font-size: 1.5rem; }
+  h2 {font-size: 1.2rem; }
+  .features {flex-direction: column; }
+}
