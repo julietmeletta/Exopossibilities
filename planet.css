@@ -118,7 +118,11 @@ body {
 }
 
 @media screen and (max-width: 800px) {
-  body {overflow: hidden; }
+  body {
+    overflow: hidden; 
+    scrollbar-width: none;
+    scrollbar-width: 0;
+  }
   
   h1 {
     font-size: 2.2rem;

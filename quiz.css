@@ -30,6 +30,8 @@ body {
     background-size: cover;
     min-height: 300vh;
     margin: 0;
+    padding-top: 100px;
+    box-sizing: border-box;
 }
 
 .card {
@@ -50,8 +52,8 @@ h1 {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding: 20px, 50px;
-    margin: 20px;
+    padding: 20px 50px;
+    margin: 20px auto;
     font-family: "Rubik Glitch", system-ui;
     font-weight: 400;
     font-style: normal;
@@ -82,7 +84,9 @@ h3 {
 #question-card {
     display: flex;
     flex-direction: column;
-    width: 700px;
+    width: 100%;
+    max-width: 700px;
+    box-sizing: border-box;
     margin: 0 auto 0 auto;
     padding: 30px 40px;
     background-color: white;
@@ -173,4 +177,32 @@ body {
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+@media screen and (max-width: 480px) {
+  body {padding-top: 90px;}
+  #Home {
+    top: 15px;
+    left: 15px;
+    font-size: 1rem;
+    padding: 15px;
+  }
+  h1 {
+    font-size: 2.2rem;
+    padding: 10px;
+    margin: 15px auto;
+  }
+  .card {
+    max-width: 90vw;
+    padding: 20px;
+    margin-top: 60px;
+    box-sizing: border-box;
+  }
+  #question-card {
+    padding: 20px;
+  }
+  #quiz-results {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
 }

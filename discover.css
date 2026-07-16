@@ -33,7 +33,8 @@
   padding: 15px;
   cursor: pointer;
   text-align: center;
-  align-self: flex-end;
+  align-self: center;
+  margin: 0 auto;
 }
 
 #Home:hover, #Random:hover {
