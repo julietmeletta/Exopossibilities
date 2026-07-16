@@ -180,7 +180,7 @@ body {
 }
 
 @media screen and (max-width: 480px) {
-  body {padding-top: 90px;}
+  body {padding-top: 45px;}
   #Home {
     top: 15px;
     left: 15px;

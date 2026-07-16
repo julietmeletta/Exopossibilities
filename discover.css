@@ -286,6 +286,8 @@ body {
   }
   #Random {
     position: relative;
+    left: auto;
+    top: auto;
     display: flex;
     align-self: center;
     align-content: center;
