@@ -180,7 +180,7 @@ body {
 }
 
 @media screen and (max-width: 480px) {
-  body {padding-top: 45px;}
+  body {padding-top: 0;}
   #Home {
     top: 15px;
     left: 15px;
@@ -195,7 +195,7 @@ body {
   .card {
     max-width: 90vw;
     padding: 20px;
-    margin-top: 60px;
+    margin-top: 50px;
     box-sizing: border-box;
   }
   #question-card {
