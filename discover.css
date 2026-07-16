@@ -264,9 +264,15 @@ body {
 }
 
 @media screen and (max-width: 480px;) {
-  #search-input {margin-top: 30px;}
+  #search-input {margin-top: 20vh;}
+  #planet-list {
+    justify-content: center;
+    justify-items: center;
+  }
  .planet-card {margin: 0 auto;}
  #Random {
-  position: relative;
+  top: 200px;
+  left: 200px;
  }
+ body {overflow: hidden;}
 }

@@ -158,16 +158,22 @@ body {
 @media screen and (max-width: 480px) {
   h1 { 
     font-size: 1.7rem;
-    padding-left: 0;
-    padding-right: 0;
-    max-width: fit-content;
+    padding-left: auto;
+    padding-right: auto;
+    width: fit-content;
+    margin: 20px auto;
+    justify-content: center;
+    justify-items: center;
   }
   h2 {font-size: 1.2rem; }
   body {overflow: hidden;}
-  .blank_space {padding: 10px;}
+  .blank_space {padding: 0;}
   .features {
+    width: fit-content;
     flex-direction: column; 
     margin: 20px auto 0 auto;
+    justify-content: center;
+    justify-items: center;
   }
   #quiz {margin-top: 10px;} 
 }
