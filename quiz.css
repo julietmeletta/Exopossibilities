@@ -166,3 +166,11 @@ h3 {
   object-fit: cover;
   display: block;
 }
+
+body {
+  animation: fadeIn 1s ease-in;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

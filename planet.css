@@ -104,3 +104,11 @@ h3 {
 #Back:hover {
     background-color: rgb(121, 142, 174);
 }
+
+body {
+  animation: fadeIn 1s ease-in;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
