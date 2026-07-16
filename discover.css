@@ -272,10 +272,12 @@ body {
   }
   #search-input {
     width: 85%;
+    margin-bottom: 15px; 
   }
   #filters {
     padding: 15px;
     gap: 15px;
+    margin-bottom: 0px;
   }
   .filter-group {
     width: 100%;
@@ -285,7 +287,7 @@ body {
     align-self: center;
     justify-content: center;
     justify-items: center;
-    width: 80%;
+    width: 100%;
     margin: 30px auto 15px auto;
     box-sizing: border-box;
   }
