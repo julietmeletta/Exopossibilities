@@ -262,3 +262,11 @@ body {
   from { opacity: 0; }
   to { opacity: 1; }
 }
+
+@media screen and (max-width: 480px;) {
+  #search-input {margin-top: 30px;}
+ .planet-card {margin: 0 auto;}
+ #Random {
+  position: relative;
+ }
+}
