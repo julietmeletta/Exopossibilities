@@ -174,3 +174,8 @@ body {
   from { opacity: 0; }
   to { opacity: 1; }
 }
+
+@media screen and (max-width: 480px) {
+    body { size: 90%; }
+}
+
