@@ -263,7 +263,7 @@ body {
 }
 
 @media screen and (max-width: 480px) {
-  body {padding-top: 90px;}
+  body {padding-top: 50px;}
   #Home {
     top: 15px;
     left: 15px;
@@ -286,7 +286,9 @@ body {
     justify-content: center;
     justify-items: center;
     width: 80%;
-    margin: 30px auto 15px auto;
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
     box-sizing: border-box;
   }
   #planet_list {
