@@ -139,7 +139,7 @@ function renderPlanetOfTheDay(planets) {
     <h4>${planet.pl_name}</h4>
     <p>Radius: ${parseFloat(planet.pl_rade).toFixed(2)} R⊕</p>
     <p>Mass: ${parseFloat(planet.pl_bmasse).toFixed(2)} M⊕</p>
-    <p>Equilibrium Temperature: ${parseFloat(planet.pl_eqt).toFixed(2)} K</p>
+    <p>Equilibrium Temperature: ${parseFloat(planet.pl_eqt).toFixed(0)} K</p>
     <p>Distance from Earth: ${parseFloat(planet.sy_dist).toFixed(2)} pc</p>
   `;
 
