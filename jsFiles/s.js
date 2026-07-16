@@ -3,6 +3,7 @@ let habitableC = [];
 let habitableO = [];
 
 function showSkeletons(container, count = 32) {
+  if (!container) return;
   container.innerHTML = "";
   for (let i = 0; i < count; i++) {
     const card = document.createElement("div");
@@ -20,7 +21,7 @@ function showSkeletons(container, count = 32) {
 }
 
 const planetList = document.getElementById("planet_list");
-showSkeletons(planetList);
+if (planetList) showSkeletons(planetList);
 
 async function getPlanets() {
   const [planetsRes, habitableCRes, habitableORes] = await Promise.all([
