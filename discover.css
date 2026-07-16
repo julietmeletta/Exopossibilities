@@ -268,7 +268,7 @@ body {
     top: 15px;
     left: 15px;
     font-size: 1rem;
-    padding: 15px;
+    padding: 10px;
   }
   #search-input {
     width: 85%;
@@ -283,7 +283,8 @@ body {
   }
   #Random {
     align-self: center;
-    width: 100%;
+    width: 80%;
+    margin: 15px auto;
     box-sizing: border-box;
   }
   #planet_list {
