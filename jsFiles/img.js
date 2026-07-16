@@ -1,10 +1,10 @@
 const PLANET_IMAGES = {
-  "terrestrial": "images/terrestrialImg.jpeg",
-  "super earth": "images/superEarthImg.jpeg",
-  "mini-neptune": "images/miniNeptuneImg.jpg",
-  "neptune-like": "images/neptuneLikeImg.jpeg",
-  "gas giant": "images/gasGiantImg.jpeg",
-  "hot jupiter": "images/hotJupiterImg.jpg"
+  "Terrestrial": "images/terrestrialImg.jpeg",
+  "Super earth": "images/superEarthImg.jpeg",
+  "Mini-neptune": "images/miniNeptuneImg.jpg",
+  "Neptune-like": "images/neptuneLikeImg.jpeg",
+  "Gas giant": "images/gasGiantImg.jpeg",
+  "Hot jupiter": "images/hotJupiterImg.jpg"
 };
 
 function classifyPlanet(planet) {
@@ -13,24 +13,24 @@ function classifyPlanet(planet) {
   const temp = parseFloat(planet.pl_eqt);
 
   if (!isNaN(radius)) {
-    if (radius < 1.0) return "terrestrial";
-    if (radius < 2) return "super earth";
-    if (radius < 4) return "mini-neptune";
-    if (radius < 6) return "neptune-like";
-    if (!isNaN(temp) && temp > 1000) return "hot jupiter";
-    return "gas giant";
+    if (radius < 1.0) return "Terrestrial";
+    if (radius < 2) return "Super earth";
+    if (radius < 4) return "Mini-neptune";
+    if (radius < 6) return "Neptune-like";
+    if (!isNaN(temp) && temp > 1000) return "Hot jupiter";
+    return "Gas giant";
   }
 
   if (!isNaN(mass)) {
-    if (mass < 2) return "terrestrial";
-    if (mass < 10) return "super earth";
-    if (mass < 17) return "mini-neptune";
-    if (mass < 50) return "neptune-like";
+    if (mass < 2) return "Terrestrial";
+    if (mass < 10) return "Super earth";
+    if (mass < 17) return "Mini-neptune";
+    if (mass < 50) return "Neptune-like";
     if (!isNaN(temp) && temp > 1000) return "hot jupiter";
-    return "gas giant";
+    return "Gas giant";
   }
 
-  return "terrestrial";
+  return "Terrestrial";
 }
 
 function getPlanetImageUrl(planet) {

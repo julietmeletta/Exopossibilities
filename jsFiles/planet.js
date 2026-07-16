@@ -33,6 +33,7 @@ async function loadPlanet() {
   document.getElementById("planet-time").innerHTML = planet.sy_dist ? parseFloat(planet.sy_dist*3.26156).toFixed(2) : "Unknown";
   document.getElementById("planet-gravity").innerHTML = gravity ? parseFloat(gravity).toFixed(2) : "Unknown";
   document.getElementById("orbital-period").innerHTML = planet.pl_orbper ? parseFloat(planet.pl_orbper).toFixed(2) : "Unknown";
+  document.getElementById("planet-type").innerHTML = classifyPlanet(planet);
 
   const inC = habitableC.some(p => p.pl_name === name);
   const inO = habitableO.some(p => p.pl_name === name);
