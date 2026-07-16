@@ -195,7 +195,7 @@ body {
   .card {
     max-width: 90vw;
     padding: 20px;
-    margin-top: 50px;
+    margin-top: 20px;
     box-sizing: border-box;
   }
   #question-card {
