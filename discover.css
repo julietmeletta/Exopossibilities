@@ -284,10 +284,14 @@ body {
     min-width: 0;
   }
   #Random {
+    position: relative;
+    display: flex;
     align-self: center;
+    align-content: center;
+    align-items: center;
     justify-content: center;
     justify-items: center;
-    width: 100%;
+    width: 90%;
     margin: 30px auto 15px auto;
     box-sizing: border-box;
   }
