@@ -176,4 +176,6 @@ body {
     justify-items: center;
   }
   #quiz {margin-top: 10px;} 
+  #planet-of-the-day {margin-bottom: 0;}
+  #Discover {size: 75%;}
 }

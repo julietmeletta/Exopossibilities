@@ -21,9 +21,6 @@
 }
 
 #Random {
-  position: absolute;
-  left: 770px;
-  top: 137px;
   font-size: 1rem;
   width: 130px;
   font-family: "Rubik", sans-serif;
@@ -34,7 +31,9 @@
   border: 2px solid rgb(51, 76, 103);
   border-radius: 16px;
   padding: 15px;
-    
+  cursor: pointer;
+  text-align: center;
+  align-self: flex-end;
 }
 
 #Home:hover, #Random:hover {
@@ -43,10 +42,10 @@
 
 body {
     background: center center fixed;
-    height: 80vh;
+    min-height: 100vh;
     color: white;
     background-image: url('images/discoverBackground.png');
-    margin-top: 30px;
+    padding-top: 110px;
 }
 
 h3 {
@@ -263,16 +262,33 @@ body {
   to { opacity: 1; }
 }
 
-@media screen and (max-width: 480px;) {
-  #search-input {margin-top: 20vh;}
-  #planet-list {
+@media screen and (max-width: 480px) {
+  body {padding-top: 90px;}
+  #Home {
+    top: 15px;
+    left: 15px;
+    font-size: 1rem;
+    padding: 15px;
+  }
+  #search-input {
+    width: 85%;
+  }
+  #filters {
+    padding: 15px;
+    gap: 15px;
+  }
+  .filter-group {
+    width: 100%;
+    min-width: 0;
+  }
+  #Random {
+    align-self: center;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  #planet_list {
     justify-content: center;
     justify-items: center;
   }
- .planet-card {margin: 0 auto;}
- #Random {
-  top: 200px;
-  left: 200px;
- }
- body {overflow: hidden;}
+  .planet_card {margin: 0 auto;}
 }
