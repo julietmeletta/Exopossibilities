@@ -157,10 +157,15 @@ body {
 
 @media screen and (max-width: 480px) {
   h1 { 
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     max-width: fit-content;
   }
   h2 {font-size: 1.2rem; }
   body {overflow: hidden;}
-  .features {flex-direction: column; }
+  .blank_space {padding: 30px;}
+  .features {
+    flex-direction: column; 
+    justify-items: center;
+    justify-content: center;
+  }
 }
