@@ -28,7 +28,7 @@ async function loadPlanet() {
   document.getElementById("planet-name").innerHTML = planet.pl_name;
   document.getElementById("planet-radius").innerHTML = planet.pl_rade ? parseFloat(planet.pl_rade).toFixed(2) : "Unknown";
   document.getElementById("planet-mass").innerHTML = planet.pl_bmasse ? parseFloat(planet.pl_bmasse).toFixed(2) : "Unknown";
-  document.getElementById("planet-temp").innerHTML = planet.pl_eqt ? parseFloat(planet.pl_eqt).toFixed(2) : "Unknown";
+  document.getElementById("planet-temp").innerHTML = planet.pl_eqt ? parseFloat(planet.pl_eqt).toFixed(0) : "Unknown";
   document.getElementById("planet-dist").innerHTML = planet.sy_dist ? parseFloat(planet.sy_dist).toFixed(2) : "Unknown";
   document.getElementById("planet-time").innerHTML = planet.sy_dist ? parseFloat(planet.sy_dist*3.26156).toFixed(2) : "Unknown";
   document.getElementById("planet-gravity").innerHTML = gravity ? parseFloat(gravity).toFixed(2) : "Unknown";
