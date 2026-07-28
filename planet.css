@@ -16,7 +16,7 @@ body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/planetBackground.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 100vh;
+    height: 90vh;
     padding-top: 30px;
     box-sizing: border-box;
 }
@@ -53,17 +53,17 @@ h3 {
   flex-direction: column;
   padding: 0px;
   margin: 0px;
-  zoom: 92%;
+  zoom: 89%;
 }
 
 #left-col {
     align-items: flex-start;
-    padding-left: 10px;
+    padding-left: 30px;
 }
 
 #right-col {
     align-items: flex-end;
-    padding-right: 10px;
+    padding-right: 15px;
 }
 
 #planet-frame {
@@ -84,17 +84,22 @@ h3 {
 }
 
 #Back {
-    display: flex;
+  position: fixed;
+    top: 40px;
+    left: 20px;
     cursor: pointer;
     background-color: rgb(51, 76, 103);
     font-size: 1.2rem;
+    display: flex;
     flex-direction: row;
     justify-content: center;
+    text-align: center;
     align-items: center;
-    padding: 15px 20px;
-    width: fit-content;
+    padding: 20px;
+    width: 100px;
+    height: 20px;
     border-radius: 9999px;
-    margin: 0 0 0 20px;
+    z-index: 10;
     font-family: "Rubik Dirt", system-ui;
   font-weight: 400;
   font-style: normal;
@@ -107,6 +112,7 @@ h3 {
 body {
   animation: fadeIn 1s ease-in;
 }
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }

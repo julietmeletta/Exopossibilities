@@ -307,3 +307,10 @@ body {
   }
   .planet_card {margin: 0 auto;}
 }
+
+@media screen and (min-width: 481px) {
+  #Random {
+    position: inherit;
+    display: flex;
+  }
+}
