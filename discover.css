@@ -88,10 +88,10 @@ body, p {
 
 .planet-type-wrapper {
   position: absolute;
-  top: 30px;
-  right: 30px;
-  width: 90px;
-  height: 90px;
+  top: 50px;
+  right: 50px;
+  width: 85px;
+  height: 85px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -173,13 +173,13 @@ body, p {
   color: #aaa;
 }
 
-.dist-row {
+.dist-row, .esi-row {
   display: flex;
   gap: 10px;
   align-items: center;
 }
 
-#dist-min, #dist-max {
+#dist-min, #dist-max, #esi-min, #esi-max {
   background-color: #111;
   font-family: "Rubik", sans-serif;
   font-optical-sizing: auto;

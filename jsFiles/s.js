@@ -71,11 +71,14 @@ function applyFilters() {
   const query = document.getElementById("search-input").value.toLowerCase();
   const minDist = parseFloat(document.getElementById("dist-min").value);
   const maxDist = parseFloat(document.getElementById("dist-max").value);
+  const minESI = parseFloat(document.getElementById("esi-min").value);
+  const maxESI = parseFloat(document.getElementById("esi-max").value);
   const habitability = document.getElementById("habitable-filter").value;
 
   const filtered = allPlanets.filter(planet => {
     const matchesName = planet.pl_name.toLowerCase().includes(query);
     const matchesDist = !planet.sy_dist || (planet.sy_dist >= minDist && planet.sy_dist <= maxDist);
+    const matchesESI = !getESI(planet) || (getESI(planet) >= minESI && getESI(planet) <= maxESI);
 
     let matchesHabitability = true;
     if (habitability === "habitableC") {
@@ -87,7 +90,7 @@ function applyFilters() {
                             !habitableO.some(p => p.pl_name === planet.pl_name);
     }
 
-    return matchesName && matchesDist && matchesHabitability;
+    return matchesName && matchesDist && matchesESI && matchesHabitability;
   });
 
   renderPlanets(filtered);

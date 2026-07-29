@@ -27,7 +27,7 @@
 body {
     color: white;
     background-image: url('images/quizBackground.png');
-    background-size: cover;
+    background-size: contain;
     min-height: 300vh;
     margin: 0;
     padding-top: 30px;

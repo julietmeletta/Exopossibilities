@@ -34,6 +34,7 @@ async function loadPlanet() {
   document.getElementById("planet-gravity").innerHTML = gravity ? parseFloat(gravity).toFixed(2) : "Unknown";
   document.getElementById("orbital-period").innerHTML = planet.pl_orbper ? parseFloat(planet.pl_orbper).toFixed(2) : "Unknown";
   document.getElementById("planet-type").innerHTML = classifyPlanet(planet);
+  document.getElementById("esi").innerHTML = getESI(planet) ? parseFloat(getESI(planet)).toFixed(2) : "Unknown";
 
   const inC = habitableC.some(p => p.pl_name === name);
   const inO = habitableO.some(p => p.pl_name === name);
@@ -84,6 +85,10 @@ async function loadPlanet() {
   } else if (planet.pl_eqt>300) {
     document.getElementById("hvac").innerHTML = "<br>&emsp;• Cooling system likely needed";
   }
+}
+
+function getESI(planet) {
+  return 1-Math.sqrt((Math.pow((planet.pl_insol-1)/(planet.pl_insol+1),2)+Math.pow((planet.pl_rade-1)/(planet.pl_rade+1),2))/2);
 }
 
 loadPlanet();

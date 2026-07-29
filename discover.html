@@ -25,6 +25,19 @@
       applyFilters()">
   </div>
 </div>
+      <div class="filter-group">
+  <label>Calculated ESI Score</label>
+  <div class="esi-row">
+    Min: <input type="number" id="esi-min" min="0.0" max="1.0" value="0.0" oninput="
+      if (+this.value > +document.getElementById('esi-max').value)
+        this.value = document.getElementById('esi-max').value;
+      applyFilters()">
+    Max: <input type="number" id="esi-max" min="0.0" max="1.0" value="1.0" oninput="
+      if (+this.value < +document.getElementById('esi-min').value)
+        this.value = document.getElementById('esi-min').value;
+      applyFilters()">
+  </div>
+</div>
        <div class="filter-group">
           <label>Habitability</label>
           <select id="habitable-filter">
@@ -41,5 +54,6 @@
         <div id = "planet_list"></div>
         <script src="jsFiles/img.js"></script>
         <script src="jsFiles/s.js"></script>
+        <script src="jsFiles/planet.js"></script>
     </body>
 </html> 
