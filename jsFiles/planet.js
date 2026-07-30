@@ -86,21 +86,39 @@ async function loadPlanet() {
     document.getElementById("hvac").innerHTML = "<br>&emsp;• Cooling system likely needed";
   }
 
-  if (medalists.some(p => p.pl_name === planet.pl_name)) {
-    const medal_wrapper = document.getElementById("medal-wrapper");
-  }
-  if (medalists.some(p => p.pl_name === planet.pl_name)) {
-  const medal = document.getElementById("medal");
+const medal_wrapper = document.getElementById("medal-wrapper");
+const medal = document.getElementById("medal");
+
+if (medalists.some(p => p.pl_name === planet.pl_name)) {
+  medal_wrapper.style.display = "block";
+
   if (planet.pl_name === medalists[0].pl_name) {
     medal.innerHTML = '<h4>Highest ESI</h4>';
-  }
-  if (planet.pl_name === medalists[1].pl_name) {
+  } else if (planet.pl_name === medalists[1].pl_name) {
     medal.innerHTML = '<h4>Closest to Earth</h4>';
-  }
-  if (planet.pl_name === medalists[2].pl_name) {
+  } else if (planet.pl_name === medalists[2].pl_name) {
     medal.innerHTML = '<h4>Farthest from Earth</h4>';
+  } else if (planet.pl_name === medalists[3].pl_name) {
+    medal.innerHTML = '<h4>Largest Radius & <br>Lowest ESI</h4>';
+  } else if (planet.pl_name === medalists[4].pl_name) {
+    medal.innerHTML = '<h4>Smallest Radius</h4>';
+  } else if (planet.pl_name === medalists[5].pl_name) {
+    medal.innerHTML = '<h4>Smallest Mass</h4>';
+  } else if (planet.pl_name === medalists[6].pl_name) {
+    medal.innerHTML = '<h4>Largest Mass</h4>';
+  } else if (planet.pl_name === medalists[7].pl_name) {
+    medal.innerHTML = '<h4>Lowest Temperature</h4>';
+  } else if (planet.pl_name === medalists[8].pl_name) {
+    medal.innerHTML = '<h4>Highest Temperature</h4>';
+  } else if (planet.pl_name === medalists[9].pl_name) {
+    medal.innerHTML = '<h4>Smallest Orbital Period</h4>';
+  } else if (planet.pl_name === medalists[10].pl_name) {
+    medal.innerHTML = '<h4>Largest Orbital Period</h4>';
   }
   medal.innerHTML += '<h2>Medal Recipient<br></h2>';
+
+} else {
+  medal_wrapper.style.display = "none";
 }
 }
 

@@ -41,7 +41,7 @@ async function getPlanets() {
   habitableC = await habitableCRes.json();
   habitableO = await habitableORes.json();
 
-  medalists = [4456,3876,5704].filter(i => allPlanets[i]).map(i => allPlanets[i]);
+  medalists = [4456,3876,5704,3898,2890,623,4145,1746,2612,4766,1613].filter(i => allPlanets[i]).map(i => allPlanets[i]);
 
   applyFilters(); 
   renderPlanetOfTheDay(allPlanets);
@@ -72,10 +72,46 @@ function renderPlanets(planetArray) {
       <p>Radius: ${parseFloat(planet.pl_rade).toFixed(2)} R⊕</p>
       <p>Mass: ${parseFloat(planet.pl_bmasse).toFixed(2)} M⊕</p>
       <p>Equilibrium Temperature: ${parseFloat(planet.pl_eqt).toFixed(0)} K</p>
-      <p>Distance from Earth: ${parseFloat(planet.sy_dist).toFixed(2)} pc</p>
+      <p2>Distance from Earth: ${parseFloat(planet.sy_dist).toFixed(2)} pc</p2>
     `;
+    if (medalists.some(p => p.pl_name === planet.pl_name)) {
+      if (planet.pl_name === medalists[0].pl_name) {
+        card.innerHTML += '<h4>Medal: Highest ESI</h4>';
+      }
+      if (planet.pl_name === medalists[1].pl_name) {
+        card.innerHTML += '<h4>Medal: Closest to Earth</h4>';
+      }
+      if (planet.pl_name === medalists[2].pl_name) {
+        card.innerHTML += '<h4>Medal: Farthest from Earth</h4>';
+      }
+      if (planet.pl_name === medalists[3].pl_name) {
+        card.innerHTML += '<h4>Medal: Lowest ESI & Largest Radius</h4>';
+      }
+      if (planet.pl_name === medalists[4].pl_name) {
+        card.innerHTML += '<h4>Medal: Smallest Radius</h4>';
+      }
+      if (planet.pl_name === medalists[5].pl_name) {
+        card.innerHTML += '<h4>Medal: Smallest Mass</h4>';
+      }
+      if (planet.pl_name === medalists[6].pl_name) {
+        card.innerHTML += '<h4>Medal: Largest Mass</h4>';
+      }
+      if (planet.pl_name === medalists[7].pl_name) {
+        card.innerHTML += '<h4>Medal: Lowest Temperature</h4>';
+      }
+      if (planet.pl_name === medalists[8].pl_name) {
+        card.innerHTML += '<h4>Medal: Highest Temperature</h4>';
+      }
+      if (planet.pl_name === medalists[9].pl_name) {
+        card.innerHTML += '<h4>Medal: Smallest Orbital Period</h4>';
+      }
+      if (planet.pl_name === medalists[10].pl_name) {
+        card.innerHTML += '<h4>Medal: Largest Orbital Period</h4>';
+      }
 
-    if (planet)
+    } else {
+      card.innerHTML += '<h4></h4>';
+    }
 
     container.appendChild(card);
   }
