@@ -85,6 +85,23 @@ async function loadPlanet() {
   } else if (planet.pl_eqt>300) {
     document.getElementById("hvac").innerHTML = "<br>&emsp;• Cooling system likely needed";
   }
+
+  if (medalists.some(p => p.pl_name === planet.pl_name)) {
+    const medal_wrapper = document.getElementById("medal-wrapper");
+  }
+  if (medalists.some(p => p.pl_name === planet.pl_name)) {
+  const medal = document.getElementById("medal");
+  if (planet.pl_name === medalists[0].pl_name) {
+    medal.innerHTML = '<h4>Highest ESI</h4>';
+  }
+  if (planet.pl_name === medalists[1].pl_name) {
+    medal.innerHTML = '<h4>Closest to Earth</h4>';
+  }
+  if (planet.pl_name === medalists[2].pl_name) {
+    medal.innerHTML = '<h4>Farthest from Earth</h4>';
+  }
+  medal.innerHTML += '<h2>Medal Recipient<br></h2>';
+}
 }
 
 function getESI(planet) {

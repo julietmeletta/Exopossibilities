@@ -1,6 +1,7 @@
 let allPlanets = [];
 let habitableC = [];
 let habitableO = [];
+let medalists = [];
 
 function showSkeletons(container, count = 32) {
   if (!container) return;
@@ -23,6 +24,12 @@ function showSkeletons(container, count = 32) {
 const planetList = document.getElementById("planet_list");
 if (planetList) showSkeletons(planetList);
 
+const params = new URLSearchParams(window.location.search);
+if (params.get("medalists") === "true") {
+  const toggle = document.getElementById("medalist-filter");
+  if (toggle) toggle.checked = true;
+}
+
 async function getPlanets() {
   const [planetsRes, habitableCRes, habitableORes] = await Promise.all([
     fetch("jsonFiles/planets.json"),
@@ -34,7 +41,9 @@ async function getPlanets() {
   habitableC = await habitableCRes.json();
   habitableO = await habitableORes.json();
 
-  renderPlanets(allPlanets);
+  medalists = [4456,3876,5704].filter(i => allPlanets[i]).map(i => allPlanets[i]);
+
+  applyFilters(); 
   renderPlanetOfTheDay(allPlanets);
 }
 
@@ -46,6 +55,9 @@ function renderPlanets(planetArray) {
   for (const planet of planetArray) {
     const card = document.createElement("div");
     card.classList.add("planet_card");
+    if (medalists.some(p => p.pl_name === planet.pl_name)) {
+      card.classList.add("medalist-card");
+    }
     card.style.cursor = "pointer";
     card.addEventListener("click", () => {
       window.location.href = `planet.html?name=${encodeURIComponent(planet.pl_name)}`;
@@ -53,27 +65,33 @@ function renderPlanets(planetArray) {
 
     const imgSrc = getPlanetImageUrl(planet);
     card.innerHTML = `
-  <div class="planet-type-wrapper">
-    <img src="${imgSrc}" alt="${planet.pl_name} type" class="planet-type-img">
-  </div>
-  <h3>${planet.pl_name}</h3>
-  <p>Radius: ${parseFloat(planet.pl_rade).toFixed(2)} R⊕</p>
-  <p>Mass: ${parseFloat(planet.pl_bmasse).toFixed(2)} M⊕</p>
-  <p>Equilibrium Temperature: ${parseFloat(planet.pl_eqt).toFixed(0)} K</p>
-  <p>Distance from Earth: ${parseFloat(planet.sy_dist).toFixed(2)} pc</p>
-`;
+      <div class="planet-type-wrapper">
+        <img src="${imgSrc}" alt="${planet.pl_name} type" class="planet-type-img">
+      </div>
+      <h3>${planet.pl_name}</h3>
+      <p>Radius: ${parseFloat(planet.pl_rade).toFixed(2)} R⊕</p>
+      <p>Mass: ${parseFloat(planet.pl_bmasse).toFixed(2)} M⊕</p>
+      <p>Equilibrium Temperature: ${parseFloat(planet.pl_eqt).toFixed(0)} K</p>
+      <p>Distance from Earth: ${parseFloat(planet.sy_dist).toFixed(2)} pc</p>
+    `;
+
+    if (planet)
 
     container.appendChild(card);
   }
 }
 
 function applyFilters() {
-  const query = document.getElementById("search-input").value.toLowerCase();
-  const minDist = parseFloat(document.getElementById("dist-min").value);
-  const maxDist = parseFloat(document.getElementById("dist-max").value);
-  const minESI = parseFloat(document.getElementById("esi-min").value);
-  const maxESI = parseFloat(document.getElementById("esi-max").value);
+  const searchEl = document.getElementById("search-input");
+  if (!searchEl) return []; 
+
+  const query = searchEl.value.toLowerCase();
+  const minDist = parseFloat(document.getElementById("dist-min").value) || 0;
+  const maxDist = parseFloat(document.getElementById("dist-max").value) || Infinity;
+  const minESI = parseFloat(document.getElementById("esi-min").value) || 0;
+  const maxESI = parseFloat(document.getElementById("esi-max").value) || Infinity;
   const habitability = document.getElementById("habitable-filter").value;
+  const showMedalistsOnly = document.getElementById("medalist-filter").checked;
 
   const filtered = allPlanets.filter(planet => {
     const matchesName = planet.pl_name.toLowerCase().includes(query);
@@ -90,7 +108,12 @@ function applyFilters() {
                             !habitableO.some(p => p.pl_name === planet.pl_name);
     }
 
-    return matchesName && matchesDist && matchesESI && matchesHabitability;
+    let matchesMedals = true;
+    if (showMedalistsOnly) {
+      matchesMedals = medalists.some(p => p.pl_name === planet.pl_name);
+    }
+
+    return matchesName && matchesDist && matchesESI && matchesHabitability && matchesMedals;
   });
 
   renderPlanets(filtered);
@@ -102,9 +125,21 @@ getPlanets();
 const randomPlanet = document.getElementById("Random");
 const searchInput = document.getElementById("search-input");
 const habitableFilter = document.getElementById("habitable-filter");
-if (randomPlanet) randomPlanet.addEventListener("click", () => {getRandomPlanet();});
+const medalistToggle = document.getElementById("medalist-filter");
+
+if (randomPlanet) randomPlanet.addEventListener("click", () => { getRandomPlanet(); });
 if (searchInput) searchInput.addEventListener("input", applyFilters);
 if (habitableFilter) habitableFilter.addEventListener("change", applyFilters);
+if (medalistToggle) {
+  medalistToggle.addEventListener("change", () => {
+    if (!medalistToggle.checked) {
+      const url = new URL(window.location.href);
+      url.searchParams.delete("medalists");
+      window.history.replaceState({}, "", url);
+    }
+    applyFilters();
+  });
+}
 
 async function getRandomPlanet() {
   const filtered = applyFilters();
@@ -130,6 +165,7 @@ function getPlanetOfTheDay(planets) {
 
 function renderPlanetOfTheDay(planets) {
   const container = document.getElementById("planet-of-the-day");
+  if (!container) return;
 
   const planet = getPlanetOfTheDay(planets);
   const imgSrc = getPlanetImageUrl(planet);
@@ -151,3 +187,13 @@ function renderPlanetOfTheDay(planets) {
     window.location.href = `planet.html?name=${encodeURIComponent(planet.pl_name)}`;
   });
 }
+
+function renderMedalists() {
+  const medalistsCard = document.getElementById("medalists");
+  if (!medalistsCard) return;
+  medalistsCard.addEventListener("click", () => {
+    window.location.href = `discover.html?medalists=true`;
+  });
+}
+
+renderMedalists();

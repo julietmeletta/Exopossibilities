@@ -23,7 +23,7 @@ body {
 
 h3 {
     display: block;
-    max-width: 350px;
+    max-width: 370px;
     width: 100%;
     color: white;
     margin-left: 10px;
@@ -58,12 +58,12 @@ h3 {
 
 #left-col {
     align-items: flex-start;
-    padding-left: 30px;
+    padding-left: 20px;
 }
 
 #right-col {
     align-items: flex-end;
-    padding-right: 15px;
+    padding-right: 20px;
 }
 
 #planet-frame {
@@ -111,6 +111,54 @@ h3 {
 
 body {
   animation: fadeIn 1s ease-in;
+}
+
+#medal-wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 350px;
+  height: 170px;
+}
+
+#medal-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: gold;
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
+}
+
+#medal {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 350px;
+    height: 170px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: top;
+    background-color: gold;
+    z-index: 10;
+    color: #111;
+    font-size: 1rem;
+    font-family: "Rubik Dirt", system-ui;
+    clip-path: polygon(100% 0, 0 0, 100% 100%);
+    h2 {
+    padding: 3px 20px 0 0;
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 400;
+    font-style: normal;
+    }
+    h4 {
+    margin: 0;
+    padding: 20px 20px 3px 0;
+    font-size: 1.2rem;
+    font-weight: 400;
+    font-style: normal;
+    }
 }
 
 @keyframes fadeIn {

@@ -112,7 +112,7 @@ body {
   justify-content: center;
 }
 
-#planet-of-the-day, #quiz {
+#planet-of-the-day, #quiz, #medalists {
     position: relative;
     background-color: #111;
     border: 2px solid rgb(51, 76, 103);
@@ -124,8 +124,17 @@ body {
     align-content: center;
 }
 
-#planet-of-the-day:hover, #quiz:hover {
+#planet-of-the-day:hover, #quiz:hover, #medalists:hover {
    border-color: rgb(121, 142, 174)
+}
+
+#medalists {
+  margin: auto;
+  width: 600px;
+  margin-top: 30px;
+  h3 {
+    margin: 0;
+  }
 }
 
 .planet-type-wrapper {

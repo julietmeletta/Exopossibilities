@@ -314,3 +314,55 @@ body {
     display: flex;
   }
 }
+
+.toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: auto;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 28px;
+}
+
+.toggle-switch input { opacity: 0; width: 0; height: 0; }
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: #aaa;
+  border-radius: 28px;
+  transition: 0.3s;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  inset: 4px auto auto 4px;
+  width: 20px;
+  height: 20px;
+  background: #111;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.toggle-switch input:checked + .slider { background: rgb(51, 76, 103); }
+.toggle-switch input:checked + .slider::before { transform: translateX(24px); }
+
+.medalist-card {
+  border: 2px solid gold;
+  background: linear-gradient(135deg, #1a1a2e, #2a2a1e);
+}
+
+.medalist-card h3 {
+  color: gold;
+}
+
+.planet_card.medalist-card {
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+}
