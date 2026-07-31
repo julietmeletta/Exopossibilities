@@ -34,7 +34,7 @@ body {
     box-sizing: border-box;
 }
 
-.card {
+.card, .none, .perfect, .close {
     max-width: 800px;
     margin: 80px auto 0 auto;
     padding: 30px 40px;
@@ -45,6 +45,12 @@ body {
     color: rgb(230, 230, 230);
     justify-content: center;
     justify-items: center;
+}
+
+.none, .perfect, .close {
+  grid-column: 1 / -1;
+  margin-top: 10px;
+  width: 100%;
 }
 
 h1 {
@@ -59,7 +65,7 @@ h1 {
     font-style: normal;
 }
 
-h2 {
+h2, .none, .perfect, .close {
   font-family: "Rubik Dirt", system-ui;
   font-weight: 400;
   font-style: normal;

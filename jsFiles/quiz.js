@@ -101,13 +101,39 @@ document.getElementById("submit-quiz").addEventListener("click", () => {
     return { planet, score: count ? total / count : Infinity };
   });
 
-  const matches = scored.filter(s => s.score < 0.02).map(s => s.planet);
-  renderResults(matches);
+  const container = document.getElementById("quiz-results");
+  container.innerHTML = "";
+    const perfect = document.createElement("div");
+    perfect.classList.add("perfect");
+    perfect.innerHTML = "Perfect Matches:";
+    container.appendChild(perfect);
+
+  const perfectMatches = scored.filter(s => s.score < 0.02).map(s => s.planet);
+  renderResults(perfectMatches);
+  if (perfectMatches.length == 0) {
+    const none = document.createElement("div");
+    none.classList.add("none");
+    none.innerHTML = "No known planets match this criteria. Please select new preferences.";
+    container.appendChild(none);
+  }
+
+  const close = document.createElement("div");
+    close.classList.add("close");
+    close.innerHTML = "Close Matches:";
+    container.appendChild(close);
+
+  const closeMatches = scored.filter(s => s.score < 0.4).map(s => s.planet);
+  renderResults(closeMatches);
+  if (closeMatches.length == 0) {
+    const none = document.createElement("div");
+    none.classList.add("none");
+    none.innerHTML = "No known planets match this criteria. Please select new preferences.";
+    container.appendChild(none);
+  }
 });
 
 function renderResults(planets) {
   const container = document.getElementById("quiz-results");
-  container.innerHTML = "";
 
   for (const planet of planets) {
     const card = document.createElement("div");
