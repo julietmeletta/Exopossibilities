@@ -10,9 +10,9 @@ Promise.all([
   allPlanets = planets;
   habitableC = hc;
   habitableO = ho;
+  medalists = [4456,3876,5704,3898,2890,623,4145,1746,2612,4766,1613].filter(i => allPlanets[i]).map(i => allPlanets[i]);
 });
 
-// same tidal-lock logic as planet.js
 function isTidallyLocked(planet) {
   if (planet.st_teff == null || planet.pl_orbper == null) return false;
   if (planet.st_teff <= 3900) return planet.pl_orbper < 15;
@@ -20,7 +20,6 @@ function isTidallyLocked(planet) {
   return planet.pl_orbper < 5;
 }
 
-// same gravity formula as planet.js (% of Earth gravity)
 function getGravity(planet) {
   if (!planet.pl_bmasse || !planet.pl_rade) return null;
   return (planet.pl_bmasse / (planet.pl_rade * planet.pl_rade)) * 100;
@@ -42,35 +41,58 @@ document.querySelectorAll(".question-card").forEach(card => {
 });
 
 document.getElementById("submit-quiz").addEventListener("click", () => {
-  const tempTargets = [150, 230, 288, 350, 600];  // Freezing..Hot, K
-  const distTargets = [7.665, 30.66, 176.296, 500];           // Far, Close, Middle, pc
-  const yearTargets = [5, 55, 550, 2000];          // day ranges, in Earth days
-  const gravTargets = [150, 50, 100];              // More, Less, Similar to Earth (%)
+  const tempRanges = [
+    [0, 190],
+    [190, 259],
+    [259, 319],
+    [319, 475],
+    [475, Infinity]
+  ];
+  const distRanges = [
+    [0, 19.16],
+    [19.16, 103.48],
+    [103.48, 338.15],
+    [338.15, Infinity]
+  ];
+  const yearRanges = [
+    [0, 10],
+    [10, 100],
+    [100, 1000],
+    [1000, Infinity]
+  ];
+  const gravRanges = [
+    [125, Infinity],
+    [0, 75],
+    [75, 125]
+  ];
 
   const scored = allPlanets.map(planet => {
     let total = 0, count = 0;
 
     if (answers.temperature && planet.pl_eqt) {
-      total += Math.abs(planet.pl_eqt - tempTargets[answers.temperature]) / tempTargets[answers.temperature];
+      const [lo, hi] = tempRanges[answers.temperature];
+      total += (planet.pl_eqt >= lo && planet.pl_eqt < hi) ? 0 : 1;
       count++;
     }
     if (answers.distance && planet.sy_dist) {
-      total += Math.abs(planet.sy_dist - distTargets[answers.distance]) / distTargets[answers.distance];
+      const [lo, hi] = distRanges[answers.distance];
+      total += (planet.sy_dist >= lo && planet.sy_dist < hi) ? 0 : 1;
       count++;
     }
     if (answers.year && planet.pl_orbper) {
-      total += Math.abs(planet.pl_orbper - yearTargets[answers.year]) / yearTargets[answers.year];
+      const [lo, hi] = yearRanges[answers.year];
+      total += (planet.pl_orbper >= lo && planet.pl_orbper < hi) ? 0 : 1;
       count++;
     }
     if (answers.gravity) {
       const g = getGravity(planet);
       if (g) {
-        total += Math.abs(g - gravTargets[answers.gravity]) / gravTargets[answers.gravity];
+        const [lo, hi] = gravRanges[answers.gravity];
+        total += (g >= lo && g < hi) ? 0 : 1;
         count++;
       }
     }
     if (answers.daynight) {
-      // "0" or "1" = wants tidal locking, "2" = wants regular day/night
       const wantsLocked = answers.daynight === "0" || answers.daynight === "1";
       total += (isTidallyLocked(planet) === wantsLocked) ? 0 : 1;
       count++;
@@ -79,11 +101,9 @@ document.getElementById("submit-quiz").addEventListener("click", () => {
     return { planet, score: count ? total / count : Infinity };
   });
 
-  const matches = scored.filter(s => s.score < 0.3).map(s => s.planet);
+  const matches = scored.filter(s => s.score < 0.02).map(s => s.planet);
   renderResults(matches);
 });
-
-medalists = [4456,3876,5704,3898,2890,623,4145,1746,2612,4766,1613].filter(i => allPlanets[i]).map(i => allPlanets[i]);
 
 function renderResults(planets) {
   const container = document.getElementById("quiz-results");
@@ -144,7 +164,6 @@ function renderResults(planets) {
       if (planet.pl_name === medalists[10].pl_name) {
         card.innerHTML += '<h4>Medal: Largest Orbital Period</h4>';
       }
-
     } else {
       card.innerHTML += '<h4></h4>';
     }
