@@ -154,10 +154,10 @@ h3 {
 
 .planet-type-wrapper {
   position: absolute;
-  top: 30px;
-  right: 30px;
-  width: 90px;
-  height: 90px;
+  top: 47px;
+  right: 50px;
+  width: 85px;
+  height: 85px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -205,4 +205,27 @@ body {
     grid-template-columns: 1fr;
     justify-items: center;
   }
+}
+
+.medalist-card {
+  border: 2px solid gold;
+  background: linear-gradient(135deg, #1a1a2e, #2a2a1e);
+}
+
+.medalist-card h3 {
+  color: gold;
+}
+
+ .medalist-card h4 {
+  font-size: .9rem;
+  color: gold;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0;
+  padding: 8px 0 8px 0;
+ }
+
+.planet_card.medalist-card {
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
 }

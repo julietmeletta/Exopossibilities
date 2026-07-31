@@ -43,7 +43,7 @@ document.querySelectorAll(".question-card").forEach(card => {
 
 document.getElementById("submit-quiz").addEventListener("click", () => {
   const tempTargets = [150, 230, 288, 350, 600];  // Freezing..Hot, K
-  const distTargets = [5000, 500, 1500];           // Far, Close, Middle, pc
+  const distTargets = [7.665, 30.66, 176.296, 500];           // Far, Close, Middle, pc
   const yearTargets = [5, 55, 550, 2000];          // day ranges, in Earth days
   const gravTargets = [150, 50, 100];              // More, Less, Similar to Earth (%)
 
@@ -79,9 +79,11 @@ document.getElementById("submit-quiz").addEventListener("click", () => {
     return { planet, score: count ? total / count : Infinity };
   });
 
-  scored.sort((a, b) => a.score - b.score);
-  renderResults(scored.slice(0, 20).map(s => s.planet));
+  const matches = scored.filter(s => s.score < 0.3).map(s => s.planet);
+  renderResults(matches);
 });
+
+medalists = [4456,3876,5704,3898,2890,623,4145,1746,2612,4766,1613].filter(i => allPlanets[i]).map(i => allPlanets[i]);
 
 function renderResults(planets) {
   const container = document.getElementById("quiz-results");
@@ -90,6 +92,9 @@ function renderResults(planets) {
   for (const planet of planets) {
     const card = document.createElement("div");
     card.classList.add("planet_card");
+    if (medalists.some(p => p.pl_name === planet.pl_name)) {
+      card.classList.add("medalist-card");
+    }
     card.style.cursor = "pointer";
     card.addEventListener("click", () => {
       window.location.href = `planet.html?name=${encodeURIComponent(planet.pl_name)}`;
@@ -97,14 +102,52 @@ function renderResults(planets) {
     const imgSrc = getPlanetImageUrl(planet);
     card.innerHTML = `
       <div class="planet-type-wrapper">
-    <img src="${imgSrc}" alt="${planet.pl_name} type" class="planet-type-img">
-  </div>
-  <h3>${planet.pl_name}</h3>
-  <p>Radius: ${parseFloat(planet.pl_rade).toFixed(2)} R⊕</p>
-  <p>Mass: ${parseFloat(planet.pl_bmasse).toFixed(2)} M⊕</p>
-  <p>Equilibrium Temperature: ${parseFloat(planet.pl_eqt).toFixed(2)} K</p>
-  <p>Distance from Earth: ${parseFloat(planet.sy_dist).toFixed(2)} pc</p>
+        <img src="${imgSrc}" alt="${planet.pl_name} type" class="planet-type-img">
+      </div>
+      <h3>${planet.pl_name}</h3>
+      <p>Radius: ${parseFloat(planet.pl_rade).toFixed(2)} R⊕</p>
+      <p>Mass: ${parseFloat(planet.pl_bmasse).toFixed(2)} M⊕</p>
+      <p>Equilibrium Temperature: ${parseFloat(planet.pl_eqt).toFixed(0)} K</p>
+      <p2>Distance from Earth: ${parseFloat(planet.sy_dist).toFixed(2)} pc</p2>
     `;
+    if (medalists.some(p => p.pl_name === planet.pl_name)) {
+      if (planet.pl_name === medalists[0].pl_name) {
+        card.innerHTML += '<h4>Medal: Highest ESI</h4>';
+      }
+      if (planet.pl_name === medalists[1].pl_name) {
+        card.innerHTML += '<h4>Medal: Closest to Earth</h4>';
+      }
+      if (planet.pl_name === medalists[2].pl_name) {
+        card.innerHTML += '<h4>Medal: Farthest from Earth</h4>';
+      }
+      if (planet.pl_name === medalists[3].pl_name) {
+        card.innerHTML += '<h4>Medal: Lowest ESI & Largest Radius</h4>';
+      }
+      if (planet.pl_name === medalists[4].pl_name) {
+        card.innerHTML += '<h4>Medal: Smallest Radius</h4>';
+      }
+      if (planet.pl_name === medalists[5].pl_name) {
+        card.innerHTML += '<h4>Medal: Smallest Mass</h4>';
+      }
+      if (planet.pl_name === medalists[6].pl_name) {
+        card.innerHTML += '<h4>Medal: Largest Mass</h4>';
+      }
+      if (planet.pl_name === medalists[7].pl_name) {
+        card.innerHTML += '<h4>Medal: Lowest Temperature</h4>';
+      }
+      if (planet.pl_name === medalists[8].pl_name) {
+        card.innerHTML += '<h4>Medal: Highest Temperature</h4>';
+      }
+      if (planet.pl_name === medalists[9].pl_name) {
+        card.innerHTML += '<h4>Medal: Smallest Orbital Period</h4>';
+      }
+      if (planet.pl_name === medalists[10].pl_name) {
+        card.innerHTML += '<h4>Medal: Largest Orbital Period</h4>';
+      }
+
+    } else {
+      card.innerHTML += '<h4></h4>';
+    }
 
     container.appendChild(card);
   }

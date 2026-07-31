@@ -62,7 +62,6 @@ function renderPlanets(planetArray) {
     card.addEventListener("click", () => {
       window.location.href = `planet.html?name=${encodeURIComponent(planet.pl_name)}`;
     });
-
     const imgSrc = getPlanetImageUrl(planet);
     card.innerHTML = `
       <div class="planet-type-wrapper">
