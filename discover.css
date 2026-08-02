@@ -42,11 +42,20 @@
 }
 
 body {
-    background: center center fixed;
+  position: relative;
     min-height: 100vh;
-    color: white;
-    background-image: url('images/discoverBackground.png');
     padding-top: 110px;
+}
+
+#parallax {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 150%;
+  background-image: url('images/discoverBackground.png');
+  background-size: cover;
+  background-position: center top;
+  z-index: -1;
 }
 
 h3 {

@@ -232,3 +232,8 @@ function renderMedalists() {
 }
 
 renderMedalists();
+
+window.addEventListener('scroll', () => {
+  const bg = document.getElementById('parallax-bg');
+  bg.style.transform = `translateY(${window.scrollY * 0.3}px)`;
+});
