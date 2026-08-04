@@ -233,7 +233,18 @@ function renderMedalists() {
 
 renderMedalists();
 
+const bg = document.getElementById('parallax');
+let current = 0;
+let target = 0;
+
 window.addEventListener('scroll', () => {
-  const bg = document.getElementById('parallax-bg');
-  bg.style.transform = `translateY(${window.scrollY * 0.3}px)`;
-});
+  target = window.scrollY * -0.4;
+}, { passive: true });
+
+function animate() {
+  current += (target - current) * 0.1;
+  bg.style.transform = `translateY(${current}px)`;
+  requestAnimationFrame(animate);
+}
+
+animate();
