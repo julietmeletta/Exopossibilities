@@ -211,4 +211,7 @@ body {
     grid-template-columns: 1fr;
     justify-items: center;
   }
+  .none, .perfect, .close {
+    max-width: 320px;
+  }
 }

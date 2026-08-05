@@ -14,7 +14,6 @@ body {
     background-color: black;
     background-position: center;
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/planetBackground.jpg');
-    background-repeat: no-repeat;
     background-size: cover;
     height: 90vh;
     padding-top: 30px;
@@ -177,6 +176,7 @@ body {
     overflow: hidden; 
     scrollbar-width: none;
     scrollbar-width: 0;
+    padding-top: 100px;
   }
   
   h1 {
