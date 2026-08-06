@@ -213,6 +213,6 @@ body {
     justify-items: center;
   }
   .none, .perfect, .close {
-    max-width: 90vw;
+    max-width: 270px;
   }
 }

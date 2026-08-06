@@ -162,6 +162,7 @@ body, p {
 .filter-group label {
   font-size: 0.85rem;
   color: white;
+  text-align: center;
 }
 
 .filter-group input[type="range"] {

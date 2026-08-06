@@ -42,6 +42,7 @@ h3 {
     font-family: "Rubik Dirt", system-ui;
   font-weight: 400;
   font-style: normal;
+  text-align: center;
 }
 
 h4 {
@@ -182,8 +183,16 @@ body {
     justify-content: center;
     justify-items: center;
   }
-  #quiz {margin-top: 10px;} 
-  #planet-of-the-day {margin-bottom: 0;}
+  #quiz, #planet-of-the-day, #glossary, #medalists {
+    margin-bottom: 15px;
+    margin-top: 0;
+  }
+  #medalists {
+    margin-top: 30px;
+  }
+  #quiz {
+    margin-bottom: 30px;
+  }
   #Discover {
     font-size: 1rem;
     padding: 10px;
