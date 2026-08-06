@@ -106,33 +106,30 @@ body {
 }
 
 .features {
-  display: flex;
-  flex-direction: row;
-  gap: 50px;
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  gap: 1rem;
+  padding: 1rem;
   justify-content: center;
 }
 
-#planet-of-the-day, #quiz, #medalists {
+#planet-of-the-day, #quiz, #medalists, #glossary {
     position: relative;
     background-color: #111;
     border: 2px solid rgb(51, 76, 103);
     width: 300px;
     border-radius: 16px;
     padding: 15px;
-    margin-top: 30px;
-    margin-bottom: 30px;
     align-content: center;
 }
 
-#planet-of-the-day:hover, #quiz:hover, #medalists:hover {
+#planet-of-the-day:hover, #quiz:hover, #medalists:hover, #glossary:hover {
    border-color: rgb(121, 142, 174)
 }
 
-#medalists {
-  margin: auto;
-  max-width: 600px;
-  width: 100%;
+#medalists, #glossary {
   margin-top: 30px;
+  text-align: center;
   h3 {
     margin: 0;
   }
@@ -191,9 +188,6 @@ body {
     font-size: 1rem;
     padding: 10px;
     margin-bottom: 20px;
-  }
-  #medalists {
-    max-width: 300px;
   }
 }
 
