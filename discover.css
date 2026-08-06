@@ -191,7 +191,11 @@ body, p {
 .dist-row, .esi-row {
   display: flex;
   gap: 10px;
+  align-content: center;
   align-items: center;
+  justify-content: center;
+  justify-items: center;
+  text-align: center;
 }
 
 #dist-min, #dist-max, #esi-min, #esi-max {

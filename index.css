@@ -177,7 +177,7 @@ body {
   .blank_space {padding: 0;}
   .features {
     width: fit-content;
-    flex-direction: column; 
+    grid-template-columns: repeat(1, max-content);
     margin: 20px auto 0 auto;
     justify-content: center;
     justify-items: center;
