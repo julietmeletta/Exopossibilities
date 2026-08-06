@@ -132,6 +132,20 @@ body {
     justify-items: center;
   }
   h2 {font-size: 1.2rem; }
-  body {overflow: hidden;}
+  body {
+    padding-top: 50px;
+}
   .blank-space {padding: 20px;}
+  #Home {
+    top: 15px;
+    left: 15px;
+    font-size: 1rem;
+    padding: 15px;
+  }
+  .info-card {
+    max-width: 90vw;
+    padding: 20px;
+    margin-top: 20px;
+    box-sizing: border-box;
+  }
 }
