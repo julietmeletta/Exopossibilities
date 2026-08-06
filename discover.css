@@ -162,7 +162,6 @@ body, p {
 .filter-group label {
   font-size: 0.85rem;
   color: white;
-  text-align: center;
 }
 
 .filter-group input[type="range"] {
@@ -303,6 +302,9 @@ body {
   .filter-group {
     width: 100%;
     min-width: 0;
+  }
+  .filter-group label {
+    text-align: center;
   }
   #Random {
     position: relative;
