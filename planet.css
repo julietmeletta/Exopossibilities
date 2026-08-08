@@ -113,7 +113,7 @@ body {
 }
 
 #medal-wrapper {
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
   width: 350px;
@@ -122,14 +122,14 @@ body {
 
 #medal-wrapper::before {
   content: '';
-  position: absolute;
+  position: relative;
   inset: 0;
   background: gold;
   clip-path: polygon(100% 0, 0 0, 100% 100%);
 }
 
 #medal {
-    position: fixed;
+    position: relative;
     top: 0;
     right: 0;
     width: 350px;
