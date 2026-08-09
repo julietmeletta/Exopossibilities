@@ -41,7 +41,7 @@ async function getPlanets() {
   habitableC = await habitableCRes.json();
   habitableO = await habitableORes.json();
 
-  medalists = [4456,3876,5704,3898,2890,623,4145,1746,2612,4766,1613].filter(i => allPlanets[i]).map(i => allPlanets[i]);
+  medalists = [4456,3876,5704,3898,2890,623,4145,1746,2612,4766,1613,574,2139].filter(i => allPlanets[i]).map(i => allPlanets[i]);
 
   applyFilters(); 
   renderPlanetOfTheDay(allPlanets);
@@ -106,6 +106,12 @@ function renderPlanets(planetArray) {
       }
       if (planet.pl_name === medalists[10].pl_name) {
         card.innerHTML += '<h4>Medal: Largest Orbital Period</h4>';
+      }
+      if (planet.pl_name === medalists[11].pl_name) {
+        card.innerHTML += '<h4>Medal: Largest Gravity</h4>';
+      }
+      if (planet.pl_name === medalists[12].pl_name) {
+        card.innerHTML += '<h4>Medal: Smallest Gravity</h4>';
       }
 
     } else {

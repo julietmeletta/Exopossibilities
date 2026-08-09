@@ -114,6 +114,10 @@ if (medalists.some(p => p.pl_name === planet.pl_name)) {
     medal.innerHTML = '<h4>Smallest Orbital Period</h4>';
   } else if (planet.pl_name === medalists[10].pl_name) {
     medal.innerHTML = '<h4>Largest Orbital Period</h4>';
+  } else if (planet.pl_name === medalists[11].pl_name) {
+    medal.innerHTML = '<h4>Largest Gravity</h4>';
+  } else if (planet.pl_name === medalists[12].pl_name) {
+    medal.innerHTML = '<h4>Smallest Gravity</h4>';
   }
   medal.innerHTML += '<h2>Medal Recipient<br></h2>';
 
