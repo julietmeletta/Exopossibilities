@@ -135,16 +135,18 @@ body {
 @media screen and (max-width: 480px) {
   html {height: 100%;}
     h1 { 
-    font-size: 1.8rem;
+    font-size: 2rem;
     padding-left: auto;
     padding-right: auto;
-    width: fit-content;
     margin: 20px auto;
     justify-content: center;
     justify-items: center;
   }
   h2 {font-size: 1.2rem; }
-  p {max-width: 90vw;}
+  p {
+    max-width: 90vw;
+    overflow-wrap: break-word;
+  }
   body {
     padding-top: 50px;
 }
@@ -159,6 +161,7 @@ body {
     max-width: 90vw;
     padding: 20px;
     margin-top: 20px;
+    margin-bottom: 30px;
     box-sizing: border-box;
   }
 }
