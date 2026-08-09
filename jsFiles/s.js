@@ -253,4 +253,4 @@ function animate() {
   requestAnimationFrame(animate);
 }
 
-animate();
+if (bg) animate();
