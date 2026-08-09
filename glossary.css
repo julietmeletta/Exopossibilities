@@ -144,6 +144,7 @@ body {
     justify-items: center;
   }
   h2 {font-size: 1.2rem; }
+  p {max-width: 90vw;}
   body {
     padding-top: 50px;
 }
