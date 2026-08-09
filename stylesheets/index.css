@@ -75,7 +75,7 @@ p {
 }
 
 body {
-    background-image: url('images/home_background.png');
+    background-image: url('../images/home_background.png');
     background-repeat: repeat-y;
     background-size: 100%;
     background-position: center;
