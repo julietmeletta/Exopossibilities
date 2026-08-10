@@ -131,3 +131,15 @@ function getESI(planet) {
 }
 
 loadPlanet();
+
+const nav = document.getElementById("side-bar");
+function displayNav() {
+  const nav_button = document.getElementById("display-nav-button");
+  if (nav_button.innerHTML === "☰") {
+  nav.style.display = "flex";
+  nav_button.innerHTML = "X";
+  } else if (nav_button.innerHTML === "X") {
+    nav.style.display = "none";
+    nav_button.innerHTML = "☰";
+  }
+}
