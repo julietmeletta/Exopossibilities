@@ -283,7 +283,7 @@ body {
 }
 
 @media screen and (max-width: 480px) {
-  body {padding-top: 50px;}
+  body {padding-top: 115px;}
   #Home {
     top: 15px;
     left: 15px;

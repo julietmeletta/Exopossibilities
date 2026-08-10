@@ -175,7 +175,10 @@ body {
     justify-items: center;
   }
   h2 {font-size: 1.2rem; }
-  body {overflow-x: hidden;}
+  body {
+    overflow-x: hidden;
+    padding-top: 75px;
+  }
   .blank_space {padding: 0;}
   .features {
     width: fit-content;
@@ -194,7 +197,7 @@ body {
   #quiz {
     margin-bottom: 30px;
   }
-  #Discover {
+  #Discover, #display-nav-button {
     font-size: 1rem;
     padding: 10px;
     margin-bottom: 20px;
