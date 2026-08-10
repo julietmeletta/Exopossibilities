@@ -254,3 +254,9 @@ function animate() {
 }
 
 if (bg) animate();
+
+const nav = document.getElementById("side-bar");
+function openNav() {
+  nav.style.display = flex;
+  nav.innerHTML = "X";
+}
