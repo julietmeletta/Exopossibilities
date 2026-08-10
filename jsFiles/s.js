@@ -229,15 +229,6 @@ function renderPlanetOfTheDay(planets) {
   });
 }
 
-function navPlanetOfTheDay() {
-  if (!allPlanets.length) {
-    alert("Planets are still loading — try again in a second.");
-    return;
-  }
-  const planet = getPlanetOfTheDay(allPlanets);
-  window.location.href = `planet.html?name=${encodeURIComponent(planet.pl_name)}`;
-}
-
 function renderMedalists() {
   const medalistsCard = document.getElementById("medalists");
   if (!medalistsCard) return;
@@ -263,15 +254,3 @@ function animate() {
 }
 
 if (bg) animate();
-
-const nav = document.getElementById("side-bar");
-function displayNav() {
-  const nav_button = document.getElementById("display-nav-button");
-  if (nav_button.innerHTML === "☰") {
-  nav.style.display = "flex";
-  nav_button.innerHTML = "X";
-  } else if (nav_button.innerHTML === "X") {
-    nav.style.display = "none";
-    nav_button.innerHTML = "☰";
-  }
-}
