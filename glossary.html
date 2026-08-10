@@ -17,7 +17,7 @@
               <span id = "h" onclick = "window.location.href = 'index.html'"><p>Home</p></span>
               <span id = "g" onclick = "window.location.href = 'glossary.html'"><p>Glossary</p></span>
               <span id = "q" onclick = "window.location.href = 'quiz.html'"><p>Quiz</p></span>
-              <span id = "t"><p>Today's Planet</p></span>
+              <span id = "t" onclick = "navPlanetOfTheDay()"><p>Today's Planet</p></span>
             </div>
         <div class="blank-space"></div>
         <h1>GLOSSARY</h1>
@@ -59,18 +59,6 @@
             <br>• Cambridge Dictionary
             </p>
         </div>
-        <script>
-            const nav = document.getElementById("side-bar");
-function displayNav() {
-  const nav_button = document.getElementById("display-nav-button");
-  if (nav_button.innerHTML === "☰") {
-  nav.style.display = "flex";
-  nav_button.innerHTML = "X";
-  } else if (nav_button.innerHTML === "X") {
-    nav.style.display = "none";
-    nav_button.innerHTML = "☰";
-  }
-}
-        </script>
+        <script src="jsFiles/s.js"></script>
     </body>
 </html>

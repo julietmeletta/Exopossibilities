@@ -229,15 +229,13 @@ function renderPlanetOfTheDay(planets) {
   });
 }
 
-function navPlanetOfTheDay(planets) {
-  const pl_day = document.getElementById("t");
-
-  const planet = getPlanetOfTheDay(planets);
-  const imgSrc = getPlanetImageUrl(planet);
-
-  pl_day.addEventListener("click", () => {
-    window.location.href = `planet.html?name=${encodeURIComponent(planet.pl_name)}`;
-  });
+function navPlanetOfTheDay() {
+  if (!allPlanets.length) {
+    alert("Planets are still loading — try again in a second.");
+    return;
+  }
+  const planet = getPlanetOfTheDay(allPlanets);
+  window.location.href = `planet.html?name=${encodeURIComponent(planet.pl_name)}`;
 }
 
 function renderMedalists() {

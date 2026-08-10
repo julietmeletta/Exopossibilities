@@ -144,3 +144,12 @@ function displayNav() {
     nav_button.innerHTML = "☰";
   }
 }
+
+function navPlanetOfTheDay() {
+  if (!allPlanets.length) {
+    alert("Planets are still loading — try again in a second.");
+    return;
+  }
+  const planet = getPlanetOfTheDay(allPlanets);
+  window.location.href = `planet.html?name=${encodeURIComponent(planet.pl_name)}`;
+}
