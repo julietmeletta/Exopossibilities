@@ -102,7 +102,7 @@ body, p {
 .planet-type-wrapper {
   position: absolute;
   top: 47px;
-  right: 50px;
+  right: 40px;
   width: 85px;
   height: 85px;
   display: flex;

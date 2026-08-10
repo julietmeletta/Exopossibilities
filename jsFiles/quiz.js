@@ -154,7 +154,7 @@ function renderResults(planets) {
       <p>Radius: ${parseFloat(planet.pl_rade).toFixed(2)} R⊕</p>
       <p>Mass: ${parseFloat(planet.pl_bmasse).toFixed(2)} M⊕</p>
       <p>Equilibrium Temperature: ${parseFloat(planet.pl_eqt).toFixed(0)} K</p>
-      <p2>Distance from Earth: ${parseFloat(planet.sy_dist).toFixed(2)} pc</p2>
+      <p>Distance from Earth: ${parseFloat(planet.sy_dist).toFixed(2)} pc</p>
     `;
     if (medalists.some(p => p.pl_name === planet.pl_name)) {
       if (planet.pl_name === medalists[0].pl_name) {
