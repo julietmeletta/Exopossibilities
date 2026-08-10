@@ -126,11 +126,16 @@ body {
 #side-bar {
   position: fixed;
   display: none;
-  height: 100%;
+  flex-direction: column;
+  gap: 20px;
   width: 100px;
+  text-align: center;
+  height: 100%;
   top: 0;
   left: 0;
   background-color: #111;
+  padding-top: 140px;
+  justify-items: center;
 }
 
 #Discover:hover, #display-nav-button:hover {

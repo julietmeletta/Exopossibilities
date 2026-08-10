@@ -206,6 +206,7 @@ function getPlanetOfTheDay(planets) {
 
 function renderPlanetOfTheDay(planets) {
   const container = document.getElementById("planet-of-the-day");
+  const pl_day = document.getElementById("t");
   if (!container) return;
 
   const planet = getPlanetOfTheDay(planets);
@@ -225,6 +226,9 @@ function renderPlanetOfTheDay(planets) {
 
   container.style.cursor = "pointer";
   container.addEventListener("click", () => {
+    window.location.href = `planet.html?name=${encodeURIComponent(planet.pl_name)}`;
+  });
+  pl_day.addEventListener("click", () => {
     window.location.href = `planet.html?name=${encodeURIComponent(planet.pl_name)}`;
   });
 }
@@ -256,7 +260,13 @@ function animate() {
 if (bg) animate();
 
 const nav = document.getElementById("side-bar");
-function openNav() {
-  nav.style.display = flex;
-  nav.innerHTML = "X";
+function displayNav() {
+  const nav_button = document.getElementById("display-nav-button");
+  if (nav_button.innerHTML === "☰") {
+  nav.style.display = "flex";
+  nav_button.innerHTML = "X";
+  } else if (nav_button.innerHTML === "X") {
+    nav.style.display = "none";
+    nav_button.innerHTML = "☰";
+  }
 }
