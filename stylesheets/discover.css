@@ -121,7 +121,7 @@ body, p {
 #search-input {
     display: block;
     width: 50%;
-    margin: 0 auto 30px auto;
+    margin: 50px auto 30px auto;
     padding: 12px 20px;
     font-size: 1rem;
     border-radius: 30px;
@@ -293,6 +293,7 @@ body {
   #search-input {
     width: 85%;
     margin-bottom: 15px; 
+    margin-top: 0;
   }
   #filters {
     padding: 15px;
