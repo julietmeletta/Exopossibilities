@@ -13,15 +13,15 @@ async function loadPlanet() {
   const habitableO = await habitableORes.json();
   
   const planet = allPlanets.find(p => p.pl_name === name);
-
-  const imgEl = document.getElementById("planet-image");
-  imgEl.src = getPlanetImageUrl(planet);
-  imgEl.alt = `Artist's concept of ${planet.pl_name}`;
-
   if (!planet) {
     document.getElementById("planet-name").innerHTML = "Planet not found.";
     return;
   }
+  const imgEl = document.getElementById("planet-image");
+  imgEl.src = getPlanetImageUrl(planet);
+  imgEl.alt = `Artist's concept of ${planet.pl_name}`;
+
+
 
   const gravity =(planet.pl_bmasse / (planet.pl_rade * planet.pl_rade))*100;
 
@@ -130,9 +130,10 @@ function getESI(planet) {
   return 1-Math.sqrt((Math.pow((planet.pl_insol-1)/(planet.pl_insol+1),2)+Math.pow((planet.pl_rade-1)/(planet.pl_rade+1),2))/2);
 }
 
-loadPlanet();
+if (document.getElementById("planet-name")) {
+  loadPlanet();
+}
 
-const nav = document.getElementById("side-bar");
 function displayNav() {
   const nav_button = document.getElementById("display-nav-button");
   if (nav_button.innerHTML === "☰") {
