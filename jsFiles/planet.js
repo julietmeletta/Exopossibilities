@@ -133,3 +133,7 @@ function getESI(planet) {
 if (document.getElementById("planet-name")) {
   loadPlanet();
 }
+
+function share() {
+  window.print();
+}

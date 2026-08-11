@@ -1,7 +1,6 @@
-#display-nav-button {
+#display-nav-button, #share-button {
   position: fixed;
-    top: 40px;
-    left: 15px;
+    top: 64px;
     cursor: pointer;
     background-color: rgb(51, 76, 103);
     font-size: 1.2rem;
@@ -19,6 +18,14 @@
   font-weight: 600;
   font-style: normal;
   z-index: 21;
+}
+
+#display-nav-button {
+  left: 15px;
+}
+
+#share-button {
+  right: 15px;
 }
 
 #side-bar {
@@ -61,4 +68,10 @@ p {
   font-optical-sizing: auto;
   font-weight: 450;
   font-style: normal;
+}
+
+@media print {
+  #display-nav-button, #share-button {
+    display: none;
+  }
 }
