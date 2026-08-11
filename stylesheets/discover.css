@@ -96,7 +96,6 @@ body, p {
     padding: 15px;
     align-content: center;
     overflow-y: hidden;
-    padding-bottom: 0;
 }
 
 h5 {
@@ -106,6 +105,11 @@ h5 {
   font-weight: 400;
   font-style: normal;
   font-size: 1.5rem;
+  max-height: 45px;
+  word-break: break-all;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  scrollbar-width: 0;
 }
 
 p2 {
@@ -118,7 +122,7 @@ p2 {
 
 .planet-type-wrapper {
   position: absolute;
-  top: 47px;
+  top: 44px;
   right: 40px;
   width: 85px;
   height: 85px;
@@ -404,7 +408,7 @@ body {
 }
 
  .medalist-card h4 {
-  font-size: .9rem;
+  font-size: .85rem;
   color: gold;
   display: flex;
   flex-direction: row;

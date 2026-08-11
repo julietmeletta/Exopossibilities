@@ -3,7 +3,6 @@
     top: 64px;
     cursor: pointer;
     background-color: rgb(51, 76, 103);
-    font-size: 1.2rem;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -15,17 +14,20 @@
     border-radius: 9999px;
     z-index: 10;
     font-family: "Rubik Dirt", system-ui;
-  font-weight: 600;
   font-style: normal;
   z-index: 21;
 }
 
 #display-nav-button {
   left: 15px;
+  font-weight: 600;
+  font-size: 1.2rem;
 }
 
 #share-button {
-  right: 15px;
+  left: 100px;
+  font-weight: 400;
+  font-size: 1.4rem;
 }
 
 #side-bar {
