@@ -29,8 +29,8 @@
   font-style: normal;
   background-color: #111;
   border: 2px solid rgb(51, 76, 103);
-  border-radius: 16px;
-  padding: 15px;
+  border-radius: 999px;
+  padding: auto;
   cursor: pointer;
   text-align: center;
   align-self: center;
@@ -43,7 +43,7 @@
 
 body {
     min-height: 100vh;
-    padding-top: 110px;
+    padding-top: 50px;
 }
 
 #parallax {
@@ -67,14 +67,15 @@ h3 {
 }
 
 body, p {
-    color: white;
-    position: relative;
+   font-size: 1.05rem;
+    line-height: 1.8;
+    letter-spacing: 0.3px;
+    margin: 0;
     font-family: "Rubik", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  padding: 0;
-  font-size: .9rem;
+  color: white;
 }
 
 #planet_list {
@@ -85,14 +86,30 @@ body, p {
 }
 
 .planet_card {
-    position: relative;
+    cursor: pointer;
+      position: relative;
     background-color: #111;
     border: 2px solid rgb(51, 76, 103);
     width: 260px;
+    height: 200px;
     border-radius: 16px;
     padding: 15px;
+    align-content: center;
+    overflow-y: hidden;
     padding-bottom: 0;
-    cursor: pointer;
+}
+
+h5 {
+  padding: 0;
+  margin: 0;
+  font-family: "Rubik Dirt", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.5rem;
+}
+
+p2 {
+  font-size: 1rem;
 }
 
 .planet_card:hover {

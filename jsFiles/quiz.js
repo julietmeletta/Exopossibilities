@@ -150,11 +150,11 @@ function renderResults(planets) {
       <div class="planet-type-wrapper">
         <img src="${imgSrc}" alt="${planet.pl_name} type" class="planet-type-img">
       </div>
-      <h3>${planet.pl_name}</h3>
-      <p>Radius: ${parseFloat(planet.pl_rade).toFixed(2)} R⊕</p>
-      <p>Mass: ${parseFloat(planet.pl_bmasse).toFixed(2)} M⊕</p>
-      <p>Equilibrium Temperature: ${parseFloat(planet.pl_eqt).toFixed(0)} K</p>
-      <p>Distance from Earth: ${parseFloat(planet.sy_dist).toFixed(2)} pc</p>
+      <h5>${planet.pl_name}</h5>
+      <p2>Radius: ${parseFloat(planet.pl_rade).toFixed(2)} R⊕<br></p2>
+      <p2>Mass: ${parseFloat(planet.pl_bmasse).toFixed(2)} M⊕<br></p2>
+      <p2>Equilibrium Temperature: ${parseFloat(planet.pl_eqt).toFixed(0)} K<br></p2>
+      <p2>Distance from Earth: ${parseFloat(planet.sy_dist).toFixed(2)} pc</p2>
     `;
     if (medalists.some(p => p.pl_name === planet.pl_name)) {
       if (planet.pl_name === medalists[0].pl_name) {

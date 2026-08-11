@@ -30,6 +30,26 @@ if (params.get("medalists") === "true") {
   if (toggle) toggle.checked = true;
 }
 
+function prefillFiltersFromUrl() {
+  const searchEl = document.getElementById("search-input");
+  if (!searchEl) return; // not on discover.html, nothing to prefill
+
+  const search = params.get("search");
+  const distMin = params.get("distMin");
+  const distMax = params.get("distMax");
+  const esiMin = params.get("esiMin");
+  const esiMax = params.get("esiMax");
+  const habitability = params.get("habitability");
+
+  if (search) searchEl.value = search;
+  if (distMin) document.getElementById("dist-min").value = distMin;
+  if (distMax) document.getElementById("dist-max").value = distMax;
+  if (esiMin) document.getElementById("esi-min").value = esiMin;
+  if (esiMax) document.getElementById("esi-max").value = esiMax;
+  if (habitability) document.getElementById("habitable-filter").value = habitability;
+}
+prefillFiltersFromUrl();
+
 async function getPlanets() {
   const [planetsRes, habitableCRes, habitableORes] = await Promise.all([
     fetch("jsonFiles/planets.json"),
@@ -67,10 +87,10 @@ function renderPlanets(planetArray) {
       <div class="planet-type-wrapper">
         <img src="${imgSrc}" alt="${planet.pl_name} type" class="planet-type-img">
       </div>
-      <h3>${planet.pl_name}</h3>
-      <p>Radius: ${parseFloat(planet.pl_rade).toFixed(2)} R⊕</p>
-      <p>Mass: ${parseFloat(planet.pl_bmasse).toFixed(2)} M⊕</p>
-      <p>Equilibrium Temperature: ${parseFloat(planet.pl_eqt).toFixed(0)} K</p>
+      <h5>${planet.pl_name}</h5>
+      <p2>Radius: ${parseFloat(planet.pl_rade).toFixed(2)} R⊕<br></p2>
+      <p2>Mass: ${parseFloat(planet.pl_bmasse).toFixed(2)} M⊕<br></p2>
+      <p2>Equilibrium Temperature: ${parseFloat(planet.pl_eqt).toFixed(0)} K<br></p2>
       <p2>Distance from Earth: ${parseFloat(planet.sy_dist).toFixed(2)} pc</p2>
     `;
     if (medalists.some(p => p.pl_name === planet.pl_name)) {
@@ -157,8 +177,37 @@ function applyFilters() {
     return matchesName && matchesDist && matchesESI && matchesHabitability && matchesMedals;
   });
 
+  syncFiltersToUrl({ query, minDist, maxDist, minESI, maxESI, habitability, showMedalistsOnly });
+
   renderPlanets(filtered);
   return filtered;
+}
+
+function syncFiltersToUrl({ query, minDist, maxDist, minESI, maxESI, habitability, showMedalistsOnly }) {
+  const url = new URL(window.location.href);
+
+  setOrDeleteParam(url, "search", query, "");
+  setOrDeleteParam(url, "distMin", minDist, 0);
+  setOrDeleteParam(url, "distMax", maxDist, Infinity);
+  setOrDeleteParam(url, "esiMin", minESI, 0);
+  setOrDeleteParam(url, "esiMax", maxESI, Infinity);
+  setOrDeleteParam(url, "habitability", habitability, "all");
+
+  if (showMedalistsOnly) {
+    url.searchParams.set("medalists", "true");
+  } else {
+    url.searchParams.delete("medalists");
+  }
+
+  window.history.replaceState({}, "", url);
+}
+
+function setOrDeleteParam(url, key, value, defaultValue) {
+  if (value === defaultValue || value === "" || value == null) {
+    url.searchParams.delete(key);
+  } else {
+    url.searchParams.set(key, value);
+  }
 }
 
 getPlanets();
