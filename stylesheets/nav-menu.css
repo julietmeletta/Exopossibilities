@@ -31,7 +31,10 @@
   height: 100%;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color: rgba(20, 20, 30, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+  color: rgb(230, 230, 230);
   padding-top: 140px;
   justify-items: center;
   z-index: 20;
@@ -53,10 +56,9 @@
 p {
     font-size: 1.05rem;
     line-height: 1.8;
-    letter-spacing: 0.3px;
-    margin: 0;
+    margin: 5px;
     font-family: "Rubik", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 400;
+  font-weight: 450;
   font-style: normal;
 }
