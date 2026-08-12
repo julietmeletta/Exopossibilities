@@ -11,8 +11,11 @@ async function loadPlanet() {
   const allPlanets = await planetsRes.json();
   const habitableC = await habitableCRes.json();
   const habitableO = await habitableORes.json();
-  
+
   const planet = allPlanets.find(p => p.pl_name === name);
+  const medalists = [4456,3876,5704,3898,2890,623,4145,1746,2612,4766,1613,574,2139]
+     .filter(i => allPlanets[i])
+     .map(i => allPlanets[i]);
   if (!planet) {
     document.getElementById("planet-name").innerHTML = "Planet not found.";
     return;
@@ -20,8 +23,6 @@ async function loadPlanet() {
   const imgEl = document.getElementById("planet-image");
   imgEl.src = getPlanetImageUrl(planet);
   imgEl.alt = `Artist's concept of ${planet.pl_name}`;
-
-
 
   const gravity =(planet.pl_bmasse / (planet.pl_rade * planet.pl_rade))*100;
 
@@ -86,44 +87,44 @@ async function loadPlanet() {
     document.getElementById("hvac").innerHTML = "<br>&emsp;• Cooling system likely needed";
   }
 
-const medal_wrapper = document.getElementById("medal-wrapper");
-const medal = document.getElementById("medal");
+  const medal_wrapper = document.getElementById("medal-wrapper");
+  const medal = document.getElementById("medal");
 
-if (medalists.some(p => p.pl_name === planet.pl_name)) {
-  medal_wrapper.style.display = "block";
+  if (medalists.some(p => p.pl_name === planet.pl_name)) {
+    medal_wrapper.style.display = "block";
 
-  if (planet.pl_name === medalists[0].pl_name) {
-    medal.innerHTML = '<h4>Highest ESI</h4>';
-  } else if (planet.pl_name === medalists[1].pl_name) {
-    medal.innerHTML = '<h4>Closest to Earth</h4>';
-  } else if (planet.pl_name === medalists[2].pl_name) {
-    medal.innerHTML = '<h4>Farthest from Earth</h4>';
-  } else if (planet.pl_name === medalists[3].pl_name) {
-    medal.innerHTML = '<h4>Largest Radius & <br>Lowest ESI</h4>';
-  } else if (planet.pl_name === medalists[4].pl_name) {
-    medal.innerHTML = '<h4>Smallest Radius</h4>';
-  } else if (planet.pl_name === medalists[5].pl_name) {
-    medal.innerHTML = '<h4>Smallest Mass</h4>';
-  } else if (planet.pl_name === medalists[6].pl_name) {
-    medal.innerHTML = '<h4>Largest Mass</h4>';
-  } else if (planet.pl_name === medalists[7].pl_name) {
-    medal.innerHTML = '<h4>Lowest Temperature</h4>';
-  } else if (planet.pl_name === medalists[8].pl_name) {
-    medal.innerHTML = '<h4>Highest Temperature</h4>';
-  } else if (planet.pl_name === medalists[9].pl_name) {
-    medal.innerHTML = '<h4>Smallest Orbital Period</h4>';
-  } else if (planet.pl_name === medalists[10].pl_name) {
-    medal.innerHTML = '<h4>Largest Orbital Period</h4>';
-  } else if (planet.pl_name === medalists[11].pl_name) {
-    medal.innerHTML = '<h4>Largest Gravity</h4>';
-  } else if (planet.pl_name === medalists[12].pl_name) {
-    medal.innerHTML = '<h4>Smallest Gravity</h4>';
+    if (planet.pl_name === medalists[0].pl_name) {
+      medal.innerHTML = '<h4>Highest ESI</h4>';
+    } else if (planet.pl_name === medalists[1].pl_name) {
+      medal.innerHTML = '<h4>Closest to Earth</h4>';
+    } else if (planet.pl_name === medalists[2].pl_name) {
+      medal.innerHTML = '<h4>Farthest from Earth</h4>';
+    } else if (planet.pl_name === medalists[3].pl_name) {
+      medal.innerHTML = '<h4>Largest Radius & <br>Lowest ESI</h4>';
+    } else if (planet.pl_name === medalists[4].pl_name) {
+      medal.innerHTML = '<h4>Smallest Radius</h4>';
+    } else if (planet.pl_name === medalists[5].pl_name) {
+      medal.innerHTML = '<h4>Smallest Mass</h4>';
+    } else if (planet.pl_name === medalists[6].pl_name) {
+      medal.innerHTML = '<h4>Largest Mass</h4>';
+    } else if (planet.pl_name === medalists[7].pl_name) {
+      medal.innerHTML = '<h4>Lowest Temperature</h4>';
+    } else if (planet.pl_name === medalists[8].pl_name) {
+      medal.innerHTML = '<h4>Highest Temperature</h4>';
+    } else if (planet.pl_name === medalists[9].pl_name) {
+      medal.innerHTML = '<h4>Smallest Orbital Period</h4>';
+    } else if (planet.pl_name === medalists[10].pl_name) {
+      medal.innerHTML = '<h4>Largest Orbital Period</h4>';
+    } else if (planet.pl_name === medalists[11].pl_name) {
+      medal.innerHTML = '<h4>Largest Gravity</h4>';
+    } else if (planet.pl_name === medalists[12].pl_name) {
+      medal.innerHTML = '<h4>Smallest Gravity</h4>';
+    }
+    medal.innerHTML += '<h2>Medal Recipient<br></h2>';
+
+  } else {
+    medal_wrapper.style.display = "none";
   }
-  medal.innerHTML += '<h2>Medal Recipient<br></h2>';
-
-} else {
-  medal_wrapper.style.display = "none";
-}
 }
 
 function getESI(planet) {

@@ -44,7 +44,7 @@
   border: 1px solid rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(6px);
   color: rgb(230, 230, 230);
-  padding-top: 140px;
+  padding-top: 160px;
   justify-items: center;
   z-index: 20;
 }
