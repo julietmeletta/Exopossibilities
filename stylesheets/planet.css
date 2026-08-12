@@ -218,13 +218,13 @@ body {
 @media print {
   
   @page {
-    size: landscape;
+    size: letter landscape;
     margin: 0 !important;
   }
 
   html, body {
     position: relative;
-    width: 100vw !important;
+    width: 1200px !important;
     height: 100vh !important;
     max-height: 100vh !important;
     overflow: hidden !important; 
