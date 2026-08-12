@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <style>
+     @import url('https://fonts.googleapis.com/css2?family=Rubik+Dirt&family=Rubik+Doodle+Shadow&family=Rubik+Glitch&family=Rubik+Mono+One&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+    </style>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exopossibilities-Map</title>
+        <link rel = "stylesheet" type = "text/css" href = "stylesheets/map.css"/>
+        <link rel = "stylesheet" type = "text/css" href = "stylesheets/nav-menu.css"/>
+    </head>
+    <body>
+        <span id = "display-nav-button" onclick = "displayNav()">☰</span>
+            <div id = "side-bar">
+              <span id = "d" onclick = "window.location.href = 'discover.html'"><p>Discover</p></span>
+              <span id = "h" onclick = "window.location.href = 'index.html'"><p>Home</p></span>
+              <span id = "g" onclick = "window.location.href = 'glossary.html'"><p>Glossary</p></span>
+              <span id = "q" onclick = "window.location.href = 'quiz.html'"><p>Quiz</p></span>
+              <span id = "t" onclick = "navPlanetOfTheDay()"><p>Today's Planet</p></span>
+            </div>
+        <div id="calc"></div>
+        <script src="jsFiles/map.js"></script>
+    </body>
+</html>
