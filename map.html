@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
+    <head>
     <style>
      @import url('https://fonts.googleapis.com/css2?family=Rubik+Dirt&family=Rubik+Doodle+Shadow&family=Rubik+Glitch&family=Rubik+Mono+One&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
     </style>
-    <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Exopossibilities-Map</title>
         <link rel = "stylesheet" type = "text/css" href = "stylesheets/map.css"/>
@@ -19,7 +19,14 @@
               <span id = "q" onclick = "window.location.href = 'quiz.html'"><p>Quiz</p></span>
               <span id = "t" onclick = "navPlanetOfTheDay()"><p>Today's Planet</p></span>
             </div>
-        <div id="calc"></div>
+        <div id = "info">
+        <button id="use-loc" onclick="getLocation()">Please Click Here to Allow Location Usage</button>
+        <div id="name-text-box">
+            <input id="text-box" type="text" placeholder="Planet name (e.g. Kepler-37 b)">
+            <button id="submit" onclick="submitted()">Find Planet</button>
+        </div>
+        </div>
+        <span id="result"></span>
         <script src="jsFiles/map.js"></script>
         <script src="jsFiles/nav.js"></script>
     </body>

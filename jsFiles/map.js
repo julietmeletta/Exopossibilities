@@ -1,4 +1,3 @@
-let date = new Date(Date.UTC(2000, 0, 1, 12, 0, 0));
 
 function timeToGMST(date) {
     let year = date.getUTCFullYear();
@@ -20,8 +19,6 @@ function timeToGMST(date) {
     GMST = ((GMST % 360) + 360) % 360;
     return GMST;
 }
-
-let GMST = timeToGMST(date);
 
 function GMSTtoLST(GMST, longitude) {
     let LST = GMST + longitude;
@@ -71,5 +68,53 @@ function calcPos(latitude, longitude, time, ra, dec) {
     return data;
 }
 
-const c = document.getElementById("calc");
-c.innerHTML = JSON.stringify(calcPos(42.365589, -71.010025, new Date(Date.UTC(2026, 7, 13, 3, 5, 0, 0)), 284.0592503, 44.5183733));
+let planetsData = [];
+let userLat = null;
+let userLong = null;
+
+async function loadPlanets() {
+    const res = await fetch("jsonFiles/planets.json");
+    planetsData = await res.json();
+    planetsData = planetsData.filter(p => p.ra != null && p.dec != null);
+}
+
+function getLocation() {
+    navigator.geolocation.getCurrentPosition(
+        function(position) {
+            userLat = position.coords.latitude;
+            userLong = position.coords.longitude;
+            document.getElementById("result").innerHTML = "Location set.";
+        },
+        function(error) {
+            document.getElementById("result").innerHTML = "Geolocation failed. Please enable location access.";
+        }
+    );
+}
+
+function getDirection(azimuth) {
+    const directions = ["N","NE","E","SE","S","SW","W","NW","N"];
+    return directions[Math.round(azimuth / 45) % 8];
+}
+
+function submitted() {
+    const result = document.getElementById("result");
+    if (userLat === null || userLong === null) {
+        result.innerHTML = "Please share your location first.";
+        return;
+    }
+    const nameEntered = document.getElementById("text-box").value.trim().toLowerCase();
+    const pl = planetsData.find(p => p.pl_name.toLowerCase() === nameEntered);
+    if (!pl) {
+        result.innerHTML = "Planet not found. Please enter the name of a planet from the Discover page.";
+        return;
+    }
+    const pos = calcPos(userLat, userLong, new Date(), pl.ra, pl.dec);
+    const direction = getDirection(pos.azimuth);
+    if (pos.altitude < 0) {
+        result.innerHTML = `${pl.pl_name} is below the horizon right now.`;
+    } else {
+        result.innerHTML = `${pl.pl_name} is about ${pos.altitude.toFixed(1)}° above the horizon, toward the ${direction}.`;
+    }
+}
+
+loadPlanets();

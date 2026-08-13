@@ -1,0 +1,55 @@
+body {
+    color: white;
+    background-image: url(../images/mapBackground.avif);
+    background-size: cover;
+}
+
+#info {
+    background-color: #111;
+    position: absolute;
+    width: 30%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    align-content: center;
+    border-radius: 32px;
+    border: 2px solid rgb(51, 76, 103);
+}
+
+#use-loc, #submit {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    background-color: rgb(51, 76, 103);
+    color: white;
+    cursor: pointer;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 9999px;
+    z-index: 10;
+    outline: none;
+    border: none;
+    font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  margin: 70px auto;
+}
+
+#text-box {
+    display: block;
+    width: 75%;
+    margin: 30px auto 30px auto;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 30px;
+    border: 2px solid rgb(51, 76, 103);
+    background-color: #111;
+    color: white;
+    font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
