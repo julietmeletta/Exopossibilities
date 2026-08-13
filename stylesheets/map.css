@@ -53,3 +53,17 @@ body {
   font-weight: 400;
   font-style: normal;
 }
+
+h1 {
+    left: 0;
+    top: 50%;
+    position: fixed;
+    display: flex;
+    width:69.5%;
+    margin: auto;
+    justify-content: center;
+    background-color: #111;
+    border: 2px solid rgb(51, 76, 103);
+    border-radius: 30px;
+    padding: auto;
+}
