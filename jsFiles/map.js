@@ -179,5 +179,50 @@ function updateTimestamp() {
     userTimestamp = new Date(year, month - 1, day, hours, minutes);
 }
 
-loadPlanets();
+function setupAutocomplete() {
+    const input = document.getElementById('text-box');
+    const dropdown = document.getElementById('autocomplete-dropdown');
+
+    input.addEventListener('input', function() {
+        const typed = input.value.toLowerCase().trim();
+        dropdown.innerHTML = '';
+
+        if (!typed) {
+            dropdown.style.display = 'none';
+            return;
+        }
+
+        const matches = planetsData
+            .filter(p => p.pl_name.toLowerCase().startsWith(typed))
+            .slice(0, 8);
+
+        if (matches.length === 0) {
+            dropdown.style.display = 'none';
+            return;
+        }
+
+        matches.forEach(function(planet) {
+            const item = document.createElement('div');
+            item.classList.add('autocomplete-item');
+            item.textContent = planet.pl_name;
+            item.addEventListener('mousedown', function() {
+                input.value = planet.pl_name;
+                dropdown.style.display = 'none';
+                dropdown.innerHTML = '';
+            });
+            dropdown.appendChild(item);
+        });
+
+        dropdown.style.display = 'block';
+    });
+
+    input.addEventListener('blur', function() {
+        setTimeout(function() {
+            dropdown.style.display = 'none';
+            dropdown.innerHTML = '';
+        }, 150);
+    });
+}
+
+loadPlanets().then(() => setupAutocomplete());
 initTimeControls();

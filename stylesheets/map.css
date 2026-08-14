@@ -48,8 +48,9 @@ body {
     margin-top: 35px;
 }
 
-#text-box, #address-input, #date-input, #time-input {
+#text-box, #address-input, #date-input, #time-input, #autocomplete-dropdown {
     display: block;
+    position: relative;
     width: 75%;
     margin: 0px auto;
     padding: 12px 20px;
@@ -64,13 +65,13 @@ body {
   font-style: normal;
 }
 
-#text-box {
-    margin-bottom: 35px;
-}
-
 #date-input, #time-input {
     margin: 0 auto 10px auto;
     display: flex;
+}
+
+#date-label {
+    margin-top: 35px;
 }
 
 h1 {
@@ -93,4 +94,18 @@ h3 {
     justify-content: center;
     margin: 0 auto 20px auto;
     padding: 0;
+}
+
+#autocomplete-dropdown {
+    position: absolute;
+    left: 28px;
+    border: none;
+    border-radius: 0;
+    margin: none;
+    padding: none;
+    z-index: 20;
+}
+
+#autocomplete-dropdown:hover {
+    cursor: pointer;
 }
