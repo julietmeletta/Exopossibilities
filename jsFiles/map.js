@@ -151,7 +151,7 @@ async function searchLocation() {
 
 function initTimeControls() {
     const dateInput = document.getElementById('date-input');
-    const slider = document.getElementById('time-slider');
+    const timeInput = document.getElementById('time-input');
     const now = new Date();
 
     const yyyy = now.getFullYear();
@@ -159,27 +159,24 @@ function initTimeControls() {
     const dd = String(now.getDate()).padStart(2, '0');
     dateInput.value = `${yyyy}-${mm}-${dd}`;
 
-    slider.value = now.getHours() * 60 + now.getMinutes();
+    const hh = String(now.getHours()).padStart(2, '0');
+    const min = String(now.getMinutes()).padStart(2, '0');
+    timeInput.value = `${hh}:${min}`;
 
     updateTimestamp(); 
 
     dateInput.addEventListener('change', updateTimestamp);
-    slider.addEventListener('input', updateTimestamp);
+    timeInput.addEventListener('input', updateTimestamp);
 }
 
 function updateTimestamp() {
     const dateInput = document.getElementById('date-input');
-    const slider = document.getElementById('time-slider');
-    const label = document.getElementById('time-label');
+    const timeInput = document.getElementById('time-input');
 
     const [year, month, day] = dateInput.value.split('-').map(Number);
-    const totalMinutes = parseInt(slider.value, 10);
-    const hours = Math.floor(totalMinutes / 60);
-    const minutes = totalMinutes % 60;
+    const [hours, minutes] = timeInput.value.split(':').map(Number);
 
     userTimestamp = new Date(year, month - 1, day, hours, minutes);
-
-    label.textContent = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
 }
 
 loadPlanets();

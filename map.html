@@ -20,7 +20,7 @@
               <span id = "t" onclick = "navPlanetOfTheDay()"><p>Today's Planet</p></span>
             </div>
         <div id = "info">
-        <button id="use-loc" onclick="getLocation()">Please Click Here to Allow Location Usage</button>
+        <button id="use-loc" onclick="getLocation()">Click Here to Allow and Use Curent Location</button>
         <h3>OR</h3>
         <div id="location-search">
          <input id="address-input" type="text" placeholder="Enter an address or city">
@@ -30,10 +30,10 @@
             <input id="text-box" type="text" placeholder="Planet name (e.g. Kepler-37 b)">
             
             <div id="time-controls">
-         <label for="date-input">Date:</label>
+         <label for="date-input"><h3>Date:</h3></label>
          <input type="date" id="date-input"><br>
-         <label for="time-slider">Time: <span id="time-label">--:--</span></label>
-         <input type="range" id="time-slider" min="0" max="1439" step="1">
+         <label for="time-input"><h3>Time:</h3></label>
+         <input type="time" id="time-input">
         </div>
          <button id="submit" onclick="submitted()">Find Planet</button>
         </div>
