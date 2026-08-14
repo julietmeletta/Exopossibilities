@@ -2,6 +2,7 @@ body {
     color: white;
     background-image: url(../images/mapBackground.avif);
     background-size: cover;
+    overflow-y: hidden;
 }
 
 #info {
