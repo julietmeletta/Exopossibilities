@@ -71,6 +71,7 @@ function calcPos(latitude, longitude, time, ra, dec) {
 let planetsData = [];
 let userLat = null;
 let userLong = null;
+let userTimestamp = new Date();
 
 async function loadPlanets() {
     const res = await fetch("jsonFiles/planets.json");
@@ -83,10 +84,10 @@ function getLocation() {
         function(position) {
             userLat = position.coords.latitude;
             userLong = position.coords.longitude;
-            document.getElementById("result").innerHTML = "Location set.";
+            document.getElementById("result").innerHTML = "<h1>Location set.</h1>";
         },
         function(error) {
-            document.getElementById("result").innerHTML = "Geolocation failed. Please enable location access.";
+            document.getElementById("result").innerHTML = "<h1>Geolocation failed. Please enable location access.</h1>";
         }
     );
 }
@@ -99,22 +100,87 @@ function getDirection(azimuth) {
 function submitted() {
     const result = document.getElementById("result");
     if (userLat === null || userLong === null) {
-        result.innerHTML = "Please share your location first.";
+        result.innerHTML = "<h1>Please share your location first.</h1>";
         return;
     }
     const nameEntered = document.getElementById("text-box").value.trim().toLowerCase();
     const pl = planetsData.find(p => p.pl_name.toLowerCase() === nameEntered);
     if (!pl) {
-        result.innerHTML = "Planet not found. Please enter the name of a planet from the Discover page.";
+        result.innerHTML = "<h1>Planet not found. Please enter the name of a planet from the Discover page.</h1>";
         return;
     }
-    const pos = calcPos(userLat, userLong, new Date(), pl.ra, pl.dec);
+    const pos = calcPos(userLat, userLong, userTimestamp, pl.ra, pl.dec);
     const direction = getDirection(pos.azimuth);
     if (pos.altitude < 0) {
         result.innerHTML = `<h1>${pl.pl_name} is below the horizon right now.</h1>`;
     } else {
-        result.innerHTML = `<h1>${pl.pl_name} is about ${pos.altitude.toFixed(1)}° above the horizon, toward the ${direction}.</h1>`;
+        result.innerHTML = `<h1>${pl.pl_name} is about ${pos.altitude.toFixed(1)}° above the horizon in the ${direction}.</h1>`;
     }
 }
 
+async function searchLocation() {
+    const address = document.getElementById('address-input').value.trim();
+    const resultSpan = document.getElementById('result');
+
+    if (!address) {
+        resultSpan.innerHTML = "<h1>Please enter an address</h1>";
+        return;
+    }
+
+    resultSpan.innerHTML = "<h1>Searching...</h1>";
+
+    try {
+        const url = `https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(address)}`;
+        const response = await fetch(url);
+        const data = await response.json();
+
+        if (data.length === 0) {
+            resultSpan.innerHTML = "<h1>Location not found. Try being more specific.</h1>";
+            return;
+        }
+
+        userLat = parseFloat(data[0].lat);
+        userLong = parseFloat(data[0].lon);
+
+        resultSpan.innerHTML = `<h1>Location set (${data[0].display_name})</h1>`;
+    } catch (error) {
+        resultSpan.innerHTML = "<h1>Error finding location.</h1>";
+        console.error(error);
+    }
+}
+
+function initTimeControls() {
+    const dateInput = document.getElementById('date-input');
+    const slider = document.getElementById('time-slider');
+    const now = new Date();
+
+    const yyyy = now.getFullYear();
+    const mm = String(now.getMonth() + 1).padStart(2, '0');
+    const dd = String(now.getDate()).padStart(2, '0');
+    dateInput.value = `${yyyy}-${mm}-${dd}`;
+
+    slider.value = now.getHours() * 60 + now.getMinutes();
+
+    updateTimestamp(); 
+
+    dateInput.addEventListener('change', updateTimestamp);
+    slider.addEventListener('input', updateTimestamp);
+}
+
+function updateTimestamp() {
+    const dateInput = document.getElementById('date-input');
+    const slider = document.getElementById('time-slider');
+    const label = document.getElementById('time-label');
+
+    const [year, month, day] = dateInput.value.split('-').map(Number);
+    const totalMinutes = parseInt(slider.value, 10);
+    const hours = Math.floor(totalMinutes / 60);
+    const minutes = totalMinutes % 60;
+
+    userTimestamp = new Date(year, month - 1, day, hours, minutes);
+
+    label.textContent = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
+}
+
 loadPlanets();
+initTimeControls();

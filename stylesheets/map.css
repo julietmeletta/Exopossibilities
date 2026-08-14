@@ -5,18 +5,20 @@ body {
 }
 
 #info {
+    display: flex;
+    flex-direction: column;
     background-color: #111;
     position: absolute;
     width: 30%;
     height: 100%;
     top: 0;
     right: 0;
-    align-content: center;
     border-radius: 32px;
     border: 2px solid rgb(51, 76, 103);
+    padding-top: 80px;
 }
 
-#use-loc, #submit {
+#use-loc, #submit, #search-loc {
     display: flex;
     flex-direction: row;
     padding: 10px;
@@ -35,13 +37,13 @@ body {
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
-  margin: 70px auto;
+  margin: 20px auto;
 }
 
-#text-box {
+#text-box, #address-input {
     display: block;
     width: 75%;
-    margin: 30px auto 30px auto;
+    margin: 0px auto;
     padding: 12px 20px;
     font-size: 1rem;
     border-radius: 30px;
@@ -54,16 +56,27 @@ body {
   font-style: normal;
 }
 
+#text-box {
+    margin-top: 40px;
+}
+
 h1 {
-    left: 0;
+    left: 35%;
     top: 50%;
+    transform: translate(-50%, -50%);
     position: fixed;
     display: flex;
-    width:69.5%;
-    margin: auto;
+    width: 61.8%;
+    margin: 0 auto;
     justify-content: center;
     background-color: #111;
-    border: 2px solid rgb(51, 76, 103);
     border-radius: 30px;
-    padding: auto;
+    border: 2px solid rgb(51, 76, 103);
+    padding: 50px;
+}
+
+h3 {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto 20px auto;
 }
