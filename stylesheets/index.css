@@ -105,15 +105,31 @@ body {
     background-color: rgb(121, 142, 174);
 }
 
-.features {
+.features1 {
   display: grid;
   grid-template-columns: repeat(2, max-content);
   gap: 1rem;
   padding: 1rem;
   justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 0;
+  text-align: center;
+  h3 {
+    margin: 0;
+  }
 }
 
-#planet-of-the-day, #quiz, #medalists, #glossary {
+.features2 {
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  gap: 1rem;
+  padding: 1rem;
+  justify-content: center;
+  margin: 0;
+  margin-bottom: 50px;
+}
+
+#planet-of-the-day, #quiz, #medalists, #glossary, #locator {
     position: relative;
     background-color: #111;
     border: 2px solid rgb(51, 76, 103);
@@ -121,20 +137,10 @@ body {
     border-radius: 16px;
     padding: 15px;
     align-content: center;
-  margin-bottom: 50px;
 }
 
-#planet-of-the-day:hover, #quiz:hover, #medalists:hover, #glossary:hover {
+#planet-of-the-day:hover, #quiz:hover, #medalists:hover, #glossary:hover, #locator:hover {
    border-color: rgb(121, 142, 174)
-}
-
-#medalists, #glossary {
-  margin-top: 30px;
-  margin-bottom: 0;
-  text-align: center;
-  h3 {
-    margin: 0;
-  }
 }
 
 .planet-type-wrapper {
@@ -180,14 +186,14 @@ body {
     padding-top: 75px;
   }
   .blank_space {padding: 0;}
-  .features {
+  .features1, .features2 {
     width: fit-content;
     grid-template-columns: repeat(1, max-content);
     margin: 20px auto 0 auto;
     justify-content: center;
     justify-items: center;
   }
-  #quiz, #planet-of-the-day, #glossary, #medalists {
+  #quiz, #planet-of-the-day, #glossary, #medalists, #locator {
     margin-bottom: 15px;
     margin-top: 0;
   }
