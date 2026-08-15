@@ -189,9 +189,12 @@ body {
   .features1, .features2 {
     width: fit-content;
     grid-template-columns: repeat(1, max-content);
-    margin: 20px auto 0 auto;
+    margin: 0 auto 0 auto;
     justify-content: center;
     justify-items: center;
+  }
+  .features1 {
+    margin-top: 20px;
   }
   #quiz, #planet-of-the-day, #glossary, #medalists, #locator {
     margin-bottom: 15px;
