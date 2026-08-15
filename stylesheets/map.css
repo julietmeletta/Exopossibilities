@@ -130,13 +130,13 @@ body {
 }
 
 @media screen and (max-width: 480px) {
-  h1 {
-    font-size: 2.2rem;
+  h2 {
+    font-size: 1.8rem;
     padding: 10px;
     margin: 15px auto;
   }
   #result {
-    max-width: 90vw;
+    max-width: 90%;
     padding: 20px;
     margin-top: 20px;
     box-sizing: border-box;

@@ -160,7 +160,7 @@ function submitted() {
     if (pos.altitude < 0) {
         result.innerHTML = `<h1>${pl.pl_name} is below the horizon right now.</h1>`;
     } else {
-        result.innerHTML = `<h1>${pl.pl_name} is about ${pos.altitude.toFixed(1)}° above the horizon in the ${direction}.</h1>`;
+        result.innerHTML = `<h1>${pl.pl_name} is about ${pos.altitude.toFixed(1)}° above the horizon towards the ${direction}.</h1>`;
     }
 }
 
