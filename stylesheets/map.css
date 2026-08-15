@@ -91,6 +91,7 @@ h2 {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    text-align: center;
     padding: 20px 50px;
     margin: 20px auto;
     font-family: "Rubik Glitch", system-ui;
@@ -131,12 +132,12 @@ body {
 
 @media screen and (max-width: 480px) {
   h2 {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     padding: 10px;
     margin: 15px auto;
   }
-  #result {
-    max-width: 90%;
+  h1 {
+    max-width: 90vw;
     padding: 20px;
     margin-top: 20px;
     box-sizing: border-box;
