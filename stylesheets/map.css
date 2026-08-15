@@ -120,3 +120,11 @@ h3 {
 #autocomplete-dropdown:hover {
     cursor: pointer;
 }
+
+body {
+  animation: fadeIn 1s ease-in;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
