@@ -49,7 +49,7 @@
   z-index: 20;
 }
 
-#d:hover, #h:hover, #g:hover, #m:hover, #q:hover, #t:hover {
+#d:hover, #h:hover, #g:hover, #m:hover, #q:hover, #t:hover, b:hover {
   width: min-content;
   padding: 10px;
   margin: -10px auto;
