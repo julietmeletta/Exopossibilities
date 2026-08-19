@@ -211,6 +211,9 @@ body {
     padding: 10px;
     margin-bottom: 20px;
   }
+  .planet-type-wrapper {
+    top: 80px;
+  }
 }
 
 .medalist-card {

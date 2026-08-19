@@ -156,8 +156,12 @@ function applyFilters() {
 
   const filtered = allPlanets.filter(planet => {
     const matchesName = planet.pl_name.toLowerCase().includes(query);
-    const matchesDist = !planet.sy_dist || (planet.sy_dist >= minDist && planet.sy_dist <= maxDist);
-    const matchesESI = !getESI(planet) || (getESI(planet) >= minESI && getESI(planet) <= maxESI);
+    const dist = parseFloat(planet.sy_dist);
+    const hasDistFilter = minDist > 0 || maxDist < Infinity;
+    const matchesDist = !hasDistFilter || (!isNaN(dist) && dist >= minDist && dist <= maxDist);
+    const esi = parseFloat(getESI(planet));
+    const hasESIFilter = minESI > 0 || maxESI < Infinity;
+    const matchesESI = !hasESIFilter || (!isNaN(esi) && esi >= minESI && esi <= maxESI);
 
     let matchesHabitability = true;
     if (habitability === "habitableC") {
