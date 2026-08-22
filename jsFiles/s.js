@@ -29,6 +29,10 @@ if (params.get("medalists") === "true") {
   const toggle = document.getElementById("medalist-filter");
   if (toggle) toggle.checked = true;
 }
+if (params.get("favorites") === "true") {
+  const favToggle = document.getElementById("favorites-filter");
+  if (favToggle) favToggle.checked = true;
+}
 
 function prefillFiltersFromUrl() {
   const searchEl = document.getElementById("search-input");
@@ -65,6 +69,26 @@ async function getPlanets() {
 
   applyFilters(); 
   renderPlanetOfTheDay(allPlanets);
+}
+
+function getFavorites() {
+  const raw = localStorage.getItem("favorites");
+  return raw ? JSON.parse(raw) : [];
+}
+
+function isFavorite(name) {
+  return getFavorites().includes(name);
+}
+
+function toggleFavorite(name) {
+  let favs = getFavorites();
+  if (favs.includes(name)) {
+    favs = favs.filter(n => n !== name);
+  } else {
+    favs.push(name);
+  }
+  localStorage.setItem("favorites", JSON.stringify(favs));
+  return favs.includes(name); 
 }
 
 function renderPlanets(planetArray) {
@@ -187,13 +211,13 @@ function applyFilters() {
       matchesFavorites = isFavorite(planet.pl_name);
     }
 
-    if (showFavoritesOnly && filtered.length === 0) {
-      document.getElementById("planet_list").innerHTML = "<p>No favorites yet. Heart a planet to see it here.</p>";
-     return filtered;
-    }
-
     return matchesName && matchesDist && matchesESI && matchesHabitability && matchesMedals && matchesFavorites;
 });
+
+  if (showFavoritesOnly && filtered.length === 0) {
+      document.getElementById("planet_list").innerHTML = "<h5>No favorites yet. Heart a planet to see it here.</h5>";
+     return filtered;
+    }
 
   syncFiltersToUrl({ query, minDist, maxDist, minESI, maxESI, habitability, showMedalistsOnly, showFavoritesOnly});
 
@@ -234,7 +258,9 @@ function setOrDeleteParam(url, key, value, defaultValue) {
   }
 }
 
-getPlanets();
+if (document.getElementById("planet_list")) {
+  getPlanets();
+}
 
 const randomPlanet = document.getElementById("Random");
 const searchInput = document.getElementById("search-input");

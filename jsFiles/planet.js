@@ -17,6 +17,11 @@ async function loadPlanet() {
      .filter(i => allPlanets[i])
      .map(i => allPlanets[i]);
 
+  if (!planet) {
+    document.getElementById("planet-name").innerHTML = "Planet not found.";
+    return;
+  }
+
   const favBtn = document.getElementById("fav-button");
 if (favBtn) {
   const updateFavButton = () => {
@@ -32,10 +37,6 @@ if (favBtn) {
   });
 }
 
-  if (!planet) {
-    document.getElementById("planet-name").innerHTML = "Planet not found.";
-    return;
-  }
   const imgEl = document.getElementById("planet-image");
   imgEl.src = getPlanetImageUrl(planet);
   imgEl.alt = `Artist's concept of ${planet.pl_name}`;
@@ -153,24 +154,4 @@ if (document.getElementById("planet-name")) {
 
 function share() {
   window.print();
-}
-
-function getFavorites() {
-  const raw = localStorage.getItem("favorites");
-  return raw ? JSON.parse(raw) : [];
-}
-
-function isFavorite(name) {
-  return getFavorites().includes(name);
-}
-
-function toggleFavorite(name) {
-  let favs = getFavorites();
-  if (favs.includes(name)) {
-    favs = favs.filter(n => n !== name);
-  } else {
-    favs.push(name);
-  }
-  localStorage.setItem("favorites", JSON.stringify(favs));
-  return favs.includes(name); 
 }
