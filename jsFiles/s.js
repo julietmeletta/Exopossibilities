@@ -78,6 +78,9 @@ function renderPlanets(planetArray) {
     if (medalists.some(p => p.pl_name === planet.pl_name)) {
       card.classList.add("medalist-card");
     }
+    if (isFavorite(planet.pl_name)) {
+  card.classList.add("favorited-card");
+    }
     card.style.cursor = "pointer";
     card.addEventListener("click", () => {
       window.location.href = `planet.html?name=${encodeURIComponent(planet.pl_name)}`;
@@ -153,6 +156,7 @@ function applyFilters() {
   const maxESI = parseFloat(document.getElementById("esi-max").value) || Infinity;
   const habitability = document.getElementById("habitable-filter").value;
   const showMedalistsOnly = document.getElementById("medalist-filter").checked;
+  const showFavoritesOnly = document.getElementById("favorites-filter").checked;
 
   const filtered = allPlanets.filter(planet => {
     const matchesName = planet.pl_name.toLowerCase().includes(query);
@@ -178,16 +182,26 @@ function applyFilters() {
       matchesMedals = medalists.some(p => p.pl_name === planet.pl_name);
     }
 
-    return matchesName && matchesDist && matchesESI && matchesHabitability && matchesMedals;
-  });
+    let matchesFavorites = true;
+    if (showFavoritesOnly) {
+      matchesFavorites = isFavorite(planet.pl_name);
+    }
 
-  syncFiltersToUrl({ query, minDist, maxDist, minESI, maxESI, habitability, showMedalistsOnly });
+    if (showFavoritesOnly && filtered.length === 0) {
+      document.getElementById("planet_list").innerHTML = "<p>No favorites yet. Heart a planet to see it here.</p>";
+     return filtered;
+    }
+
+    return matchesName && matchesDist && matchesESI && matchesHabitability && matchesMedals && matchesFavorites;
+});
+
+  syncFiltersToUrl({ query, minDist, maxDist, minESI, maxESI, habitability, showMedalistsOnly, showFavoritesOnly});
 
   renderPlanets(filtered);
   return filtered;
 }
 
-function syncFiltersToUrl({ query, minDist, maxDist, minESI, maxESI, habitability, showMedalistsOnly }) {
+function syncFiltersToUrl({ query, minDist, maxDist, minESI, maxESI, habitability, showMedalistsOnly, showFavoritesOnly }) {
   const url = new URL(window.location.href);
 
   setOrDeleteParam(url, "search", query, "");
@@ -201,6 +215,12 @@ function syncFiltersToUrl({ query, minDist, maxDist, minESI, maxESI, habitabilit
     url.searchParams.set("medalists", "true");
   } else {
     url.searchParams.delete("medalists");
+  }
+
+  if (showFavoritesOnly) {
+    url.searchParams.set("favorites", "true");
+  } else {
+    url.searchParams.delete("favorites");
   }
 
   window.history.replaceState({}, "", url);
@@ -234,6 +254,8 @@ if (medalistToggle) {
     applyFilters();
   });
 }
+const favoritesFilter = document.getElementById("favorites-filter");
+if (favoritesFilter) favoritesFilter.addEventListener("change", applyFilters);
 
 async function getRandomPlanet() {
   const filtered = applyFilters();

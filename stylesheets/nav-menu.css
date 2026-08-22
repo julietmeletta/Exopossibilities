@@ -1,4 +1,4 @@
-#display-nav-button, #share-button {
+#display-nav-button, #share-button, #fav-button {
   position: fixed;
     top: 64px;
     cursor: pointer;
@@ -30,6 +30,12 @@
   font-size: 1.4rem;
 }
 
+#fav-button {
+  left: 185px;
+  font-weight: 400px;
+  font-size: 2.2rem;
+}
+
 #side-bar {
   position: fixed;
   display: none;
@@ -58,7 +64,7 @@
   cursor: pointer;
 }
 
-#display-nav-button:hover {
+#display-nav-button:hover, #share-button:hover, #fav-button:hover {
     background-color: rgb(121, 142, 174);
 }
 
@@ -73,7 +79,7 @@ p {
 }
 
 @media print {
-  #display-nav-button, #share-button {
+  #display-nav-button, #share-button, #fav-button {
     display: none;
   }
 }
