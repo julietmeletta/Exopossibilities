@@ -1,6 +1,3 @@
-let allPlanets = [];
-let habitableC = [];
-let habitableO = [];
 
 Promise.all([
   fetch("jsonFiles/planets.json").then(r => r.json()),
@@ -138,8 +135,12 @@ function renderResults(planets) {
   for (const planet of planets) {
     const card = document.createElement("div");
     card.classList.add("planet_card");
-    if (medalists.some(p => p.pl_name === planet.pl_name)) {
+    if ((medalists.some(p => p.pl_name === planet.pl_name))&&(isFavorite(planet.pl_name))) {
+      card.classList.add("both-card");
+    } else if (medalists.some(p => p.pl_name === planet.pl_name)) {
       card.classList.add("medalist-card");
+    } else if (isFavorite(planet.pl_name)) {
+      card.classList.add("favorited-card");
     }
     card.style.cursor = "pointer";
     card.addEventListener("click", () => {
