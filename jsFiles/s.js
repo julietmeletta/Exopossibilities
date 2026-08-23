@@ -176,7 +176,8 @@ function applyFilters() {
 
   const query = searchEl.value.toLowerCase();
   const minDist = parseFloat(document.getElementById("dist-min").value) || 0;
-  const maxDist = parseFloat(document.getElementById("dist-max").value) || Infinity;
+  const distMaxEl = document.getElementById("dist-max");
+  const maxDist = distMaxEl.value === "" ? Infinity : parseFloat(distMaxEl.value);
   const minESI = parseFloat(document.getElementById("esi-min").value) || 0;
   const maxESI = parseFloat(document.getElementById("esi-max").value) || Infinity;
   const habitability = document.getElementById("habitable-filter").value;
