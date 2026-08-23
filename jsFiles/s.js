@@ -99,10 +99,11 @@ function renderPlanets(planetArray) {
   for (const planet of planetArray) {
     const card = document.createElement("div");
     card.classList.add("planet_card");
-    if (medalists.some(p => p.pl_name === planet.pl_name)) {
+    if ((medalists.some(p => p.pl_name === planet.pl_name))&&(isFavorite(planet.pl_name))) {
+      card.classList.add("both-card");
+    } else if (medalists.some(p => p.pl_name === planet.pl_name)) {
       card.classList.add("medalist-card");
-    }
-    if (isFavorite(planet.pl_name)) {
+    } else if (isFavorite(planet.pl_name)) {
   card.classList.add("favorited-card");
     }
     card.style.cursor = "pointer";
@@ -258,7 +259,7 @@ function setOrDeleteParam(url, key, value, defaultValue) {
   }
 }
 
-if (document.getElementById("planet_list")) {
+if (document.getElementById("planet_list") || document.getElementById("planet-of-the-day")) {
   getPlanets();
 }
 
@@ -282,6 +283,11 @@ if (medalistToggle) {
 }
 const favoritesFilter = document.getElementById("favorites-filter");
 if (favoritesFilter) favoritesFilter.addEventListener("change", applyFilters);
+window.addEventListener("pageshow", (event) => {
+  if (event.persisted) {
+    applyFilters();
+  }
+});
 
 async function getRandomPlanet() {
   const filtered = applyFilters();
