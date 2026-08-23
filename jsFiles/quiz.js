@@ -119,7 +119,9 @@ document.getElementById("submit-quiz").addEventListener("click", () => {
     close.innerHTML = "Close Matches:";
     container.appendChild(close);
 
-  const closeMatches = scored.filter(s => s.score < 0.4).map(s => s.planet);
+  const closeMatches = scored
+  .filter(s => s.score < 0.4 && s.score >= 0.02)
+  .map(s => s.planet);
   renderResults(closeMatches);
   if (closeMatches.length == 0) {
     const none = document.createElement("div");

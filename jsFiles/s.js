@@ -187,10 +187,11 @@ function applyFilters() {
     const matchesName = planet.pl_name.toLowerCase().includes(query);
     const dist = parseFloat(planet.sy_dist);
     const hasDistFilter = minDist > 0 || maxDist < Infinity;
-    const matchesDist = !hasDistFilter || (!isNaN(dist) && dist >= minDist && dist <= maxDist);
     const esi = parseFloat(getESI(planet));
     const hasESIFilter = minESI > 0 || maxESI < Infinity;
-    const matchesESI = !hasESIFilter || (!isNaN(esi) && esi >= minESI && esi <= maxESI);
+    const isMedalistOverride = showMedalistsOnly && planet.pl_name === "V2376 Ori b";
+    const matchesDist = isMedalistOverride || !hasDistFilter || (!isNaN(dist) && dist >= minDist && dist <= maxDist);
+    const matchesESI = isMedalistOverride || !hasESIFilter || (!isNaN(esi) && esi >= minESI && esi <= maxESI);
 
     let matchesHabitability = true;
     if (habitability === "habitableC") {
