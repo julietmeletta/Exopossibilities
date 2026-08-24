@@ -294,6 +294,11 @@ input[type=number]::-webkit-outer-spin-button {
   padding: 2rem;
 }
 
+#planet_list {
+  overflow: visible;
+  min-height: 200px;
+}
+
 @keyframes shimmer {
   100% { left: 150%; }
 }
@@ -361,6 +366,7 @@ body {
     overflow-wrap: break-word;
     word-break: normal;
     height: auto;
+    max-height: none;
   }
 }
 
