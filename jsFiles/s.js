@@ -218,7 +218,7 @@ function applyFilters() {
 });
 
   if (showFavoritesOnly && filtered.length === 0) {
-      document.getElementById("planet_list").innerHTML = "<h5>No favorites yet. Heart a planet to see it here.</h5>";
+    document.getElementById("planet_list").innerHTML = '<div class="empty-state"><h5>No favorites yet. Heart a planet to see it here.</h5></div>';
      return filtered;
     }
 

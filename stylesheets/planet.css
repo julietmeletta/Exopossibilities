@@ -173,12 +173,12 @@ body {
 
 @media screen and (max-width: 800px) {
   body {
-    overflow: hidden; 
     scrollbar-width: none;
-    scrollbar-width: 0;
     padding-top: 100px;
     height: 100vh;
   }
+
+  body::-webkit-scrollbar { display: none; }
   
   h1 {
     font-size: 2.2rem;
