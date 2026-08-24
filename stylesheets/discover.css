@@ -353,6 +353,9 @@ body {
   h5 {
     max-width: 90vw;
     overflow-wrap: break-word;
+    word-break: normal;
+    font-size: clamp();
+    height: auto;
   }
 }
 
