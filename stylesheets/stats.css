@@ -82,3 +82,16 @@ h3 {
     top: 170px;
     left: 190px;
 }
+
+@media screen and (max-width: 480px) {
+    body { 
+        padding-top: 0;
+    }
+    h1 {
+        padding-top: 100px;
+    }
+    #stat-list, h2 {
+        max-width: 90vw;
+        box-sizing: border-box;
+    }
+}
