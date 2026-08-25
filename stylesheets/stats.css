@@ -83,6 +83,15 @@ h3 {
     left: 190px;
 }
 
+body {
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 @media screen and (max-width: 480px) {
     body { 
         padding-top: 0;
@@ -101,9 +110,11 @@ h3 {
         grid-template-columns: repeat(1, minmax(350px, 1fr));
     }
     #stat-list > div {
-    height: 200px;
+    height: 311px;
     }
     #type-chart, #year-chart, #radius-chart, #mass-chart, #temp-chart, #esi-chart {
-    width: 225px;
+        display: block;
+        margin: 0 auto;
+        width: 350px;
     }
 }
