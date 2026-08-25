@@ -39,7 +39,7 @@ h1 {
     backdrop-filter: blur(6px);
     color: rgb(230, 230, 230);
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    grid-template-columns: repeat(2, minmax(500px, 1fr));
     gap: 1rem;
     padding: 1rem;
     justify-items: center;
@@ -93,5 +93,17 @@ h3 {
     #stat-list, h2 {
         max-width: 90vw;
         box-sizing: border-box;
+    }
+    .bg {
+        background-size: cover;
+    }
+    #stat-list {
+        grid-template-columns: repeat(1, minmax(350px, 1fr));
+    }
+    #stat-list > div {
+    height: 200px;
+    }
+    #type-chart, #year-chart, #radius-chart, #mass-chart, #temp-chart, #esi-chart {
+    width: 225px;
     }
 }
