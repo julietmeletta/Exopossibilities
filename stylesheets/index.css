@@ -211,11 +211,11 @@ body {
     font-size: 1rem;
     padding: 10px;
     margin-bottom: 20px;
+    height: 20px;
   }
   .planet-type-wrapper {
     top: 80px;
   }
-}
 
 .medalist-card {
   border: 2px solid gold;
@@ -238,4 +238,5 @@ body {
 
 .planet_card.medalist-card {
   box-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+}
 }

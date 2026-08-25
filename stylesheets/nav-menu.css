@@ -83,3 +83,18 @@ p {
     display: none;
   }
 }
+
+@media screen and (max-width: 480px) {
+    #display-nav-button {
+      padding: 15px;
+      left: 20px;
+    }
+    #share-button {
+      padding: 15px;
+      left: 100px;
+    }
+    #fav-button {
+      padding: 15px;
+      left: 180px;
+    }
+  }
