@@ -50,12 +50,12 @@
   border: 1px solid rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(6px);
   color: rgb(230, 230, 230);
-  padding-top: 160px;
+  padding-top: 150px;
   justify-items: center;
   z-index: 20;
 }
 
-#d:hover, #h:hover, #g:hover, #m:hover, #q:hover, #t:hover, #b:hover {
+#d:hover, #h:hover, #g:hover, #m:hover, #q:hover, #t:hover, #b:hover, #s:hover {
   width: min-content;
   padding: 10px;
   margin: -10px auto;
