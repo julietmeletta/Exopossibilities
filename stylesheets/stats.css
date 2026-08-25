@@ -110,11 +110,15 @@ body {
         grid-template-columns: repeat(1, minmax(350px, 1fr));
     }
     #stat-list > div {
-    height: 311px;
+    height: 284px;
     }
     #type-chart, #year-chart, #radius-chart, #mass-chart, #temp-chart, #esi-chart {
         display: block;
         margin: 0 auto;
-        width: 350px;
+        width: 320px;
+    }
+    #axis-label-temp {
+        top: 160px;
+        left: 160px;
     }
 }
