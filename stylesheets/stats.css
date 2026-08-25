@@ -102,6 +102,8 @@ body {
     #stat-list, h2 {
         max-width: 90vw;
         box-sizing: border-box;
+        text-align: center;
+        justify-content: center;
     }
     .bg {
         background-size: cover;
@@ -110,15 +112,16 @@ body {
         grid-template-columns: repeat(1, minmax(350px, 1fr));
     }
     #stat-list > div {
-    height: 284px;
+    height: 266px;
     }
     #type-chart, #year-chart, #radius-chart, #mass-chart, #temp-chart, #esi-chart {
         display: block;
         margin: 0 auto;
-        width: 320px;
+        width: 300px;
     }
     #axis-label-temp {
-        top: 160px;
-        left: 160px;
+        font-size: small;
+        top: 150px;
+        left: 80px;
     }
 }

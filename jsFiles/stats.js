@@ -148,8 +148,9 @@ async function init() {
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
+        legend: { labels: { color: 'white' } },
         datalabels: {
-        color: 'white',
+        color: '#111',
         font: { size: 13, weight: 'bold' },
         anchor: 'center',
         align: 'center',
@@ -177,7 +178,7 @@ async function init() {
     options: {
         responsive: true,
         maintainAspectRatio: false,
-        plugins: { datalabels: { display: false } },
+        plugins: { legend: { labels: { color: 'white' } }, datalabels: { display: false } },
         scales: {
             x: {
                 ticks: { color: 'white' },
