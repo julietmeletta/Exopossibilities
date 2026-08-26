@@ -9,5 +9,8 @@ Thanks for reading and have fun exploring my website!
 **Demo Link:**
 [Try Here!](https://julietmeletta.github.io/Exopossibilities/)
 
+**Disclaimer:**
+For some data (tidally locked and ESI calculations), the results are calculated and will mostly produce the right result but some boderline cases may differentiate from actual scientific results. 
+
 **AI Notice:**
 AI helped me with most of the JavaScript since this is my first project ever using JS. I'm proud to say that this has helped me learn how some basic JS works so that for my next project I will be able to do it myself. Also used for couple of features that were new to me, some polishing with appearance, and debugging. 
