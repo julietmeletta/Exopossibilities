@@ -9,14 +9,20 @@ function getPlanetOfTheDay(planets) {
   return planets[index];
 }
 
-function navPlanetOfTheDay() {
-  if (!allPlanets.length) {
-    alert("Planets are still loading — try again in a second.");
-    return;
-  }
-  const planet = getPlanetOfTheDay(allPlanets);
-  window.location.href = `planet.html?name=${encodeURIComponent(planet.pl_name)}`;
+async function navPlanetOfTheDay() {
+if (typeof allPlanets === "undefined" || !allPlanets.length) {
+try {
+const response = await fetch("jsonFiles/planets.json");
+allPlanets = await response.json();
+} catch (error) {
+alert("Unable to load planets. Please try again.");
+return;
 }
+}
+const planet = getPlanetOfTheDay(allPlanets);
+window.location.href = `planet.html?name=${encodeURIComponent(planet.pl_name)}`;
+}
+
 
 const nav = document.getElementById("side-bar");
 function displayNav() {
