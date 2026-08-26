@@ -158,7 +158,7 @@ function submitted() {
     const pos = calcPos(userLat, userLong, userTimestamp, pl.ra, pl.dec);
     const direction = getDirection(pos.azimuth);
     if (pos.altitude < 0) {
-        result.innerHTML = `<h1>${pl.pl_name} is below the horizon right now.</h1>`;
+        result.innerHTML = `<h1>${pl.pl_name} is below the horizon.</h1>`;
     } else {
         result.innerHTML = `<h1>${pl.pl_name} is about ${pos.altitude.toFixed(1)}° above the horizon towards the ${direction}.</h1>`;
     }
