@@ -138,6 +138,7 @@ body {
     border-radius: 16px;
     padding: 15px;
     align-content: center;
+    cursor: pointer;
 }
 
 #planet-of-the-day:hover, #quiz:hover, #medalists:hover, #glossary:hover, #locator:hover {
