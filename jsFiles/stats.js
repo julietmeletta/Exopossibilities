@@ -211,7 +211,7 @@ async function init() {
         x: {
             title: {
                 display: true,
-                text: 'Radius Size in Earth Radii',
+                text: 'Radius Size in R⊕',
                 color: 'white'
             },
             ticks: { color: 'white' },
@@ -252,7 +252,7 @@ async function init() {
         x: {
             title: {
                 display: true,
-                text: 'Mass Size in Earth Masses',
+                text: 'Mass Size in M⊕',
                 color: 'white'
             },
             ticks: { color: 'white' },

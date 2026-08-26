@@ -129,6 +129,7 @@ document.getElementById("submit-quiz").addEventListener("click", () => {
     none.innerHTML = "No known planets match this criteria. Please select new preferences.";
     container.appendChild(none);
   }
+    container.scrollIntoView({ behavior: "smooth", block: "start" });
 });
 
 function renderResults(planets) {
