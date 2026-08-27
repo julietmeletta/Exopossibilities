@@ -274,7 +274,7 @@ async function init() {
     new Chart(document.getElementById('tempChart'), {
     type: 'polarArea',
     data: {
-        labels: ['0–200', '200–400', '400–600', '600–800', '800–1000', '1000–1200', '1200–1400', '1400–1600', '1600–1800', '1800–2000', '2000+'],
+        labels: ['0–200 Kelvin', '200–400 Kelvin', '400–600 Kelvin', '600–800 Kelvin', '800–1000 Kelvin', '1000–1200 Kelvin', '1200–1400 Kelvin', '1400–1600 Kelvin', '1600–1800 Kelvin', '1800–2000 Kelvin', '2000+ Kelvin'],
         datasets: [{
             data: temps,
             borderColor: 'rgba(80, 0, 255, 0.8)',
@@ -285,17 +285,7 @@ async function init() {
         plugins: {
             datalabels: { display: false },
             legend: {
-             display: true,
-              labels: {
-                 color: 'white',
-                    generateLabels: () => [{
-                        text: 'Temperature in Kelvin',
-                        fillStyle: 'rgba(80, 0, 255, 0.7)',
-                        strokeStyle: 'rgba(80, 0, 255, 0.8)',
-                        lineWidth: 1,
-                        fontColor: 'white'
-                     }]
-                },
+             display: false,
             }
         },
         responsive: true,
