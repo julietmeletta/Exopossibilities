@@ -76,42 +76,49 @@ async function loadPlanets() {
     planetsData = planetsData.filter(p => p.ra != null && p.dec != null);
 }
 
-function getLocation() {
-    navigator.geolocation.getCurrentPosition(
-        function (position) {
-            userLat = position.coords.latitude;
-            userLong = position.coords.longitude;
-            document.getElementById("result").innerHTML = "<h1>Location set.</h1>";
-        },
-        function (error) {
-            document.getElementById("result").innerHTML = "<h1>Geolocation failed. Please enable location access.</h1>";
-        }
-    );
-}
-
+const resultSpan = document.getElementById('result');
 async function searchLocation() {
     const address = document.getElementById('address-input').value.trim();
-    const resultSpan = document.getElementById('result');
     if (!address) {
         resultSpan.innerHTML = "<h1>Please enter an address.</h1>";
+       resultSpan.scrollIntoView({ behavior: "smooth", block: "start" });
         return;
     }
     resultSpan.innerHTML = "<h1>Searching...</h1>";
+    resultSpan.scrollIntoView({ behavior: "smooth", block: "start" });
     try {
         const url = `https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(address)}`;
         const response = await fetch(url);
         const data = await response.json();
         if (data.length === 0) {
             resultSpan.innerHTML = "<h1>Location not found. Try being more specific.</h1>";
+            resultSpan.scrollIntoView({ behavior: "smooth", block: "start" });
             return;
         }
         userLat = parseFloat(data[0].lat);
         userLong = parseFloat(data[0].lon);
         resultSpan.innerHTML = `<h1>Location set (${data[0].display_name})</h1>`;
+        resultSpan.scrollIntoView({ behavior: "smooth", block: "start" });
     } catch (error) {
         resultSpan.innerHTML = "<h1>Error finding location.</h1>";
+        resultSpan.scrollIntoView({ behavior: "smooth", block: "start" });
         console.error(error);
     }
+}
+
+function getLocation() {
+    navigator.geolocation.getCurrentPosition(
+        function (position) {
+            userLat = position.coords.latitude;
+            userLong = position.coords.longitude;
+            resultSpan.innerHTML = "<h1>Location set.</h1>";
+            resultSpan.scrollIntoView({ behavior: "smooth", block: "start" });
+        },
+        function (error) {
+            resultSpan.innerHTML = "<h1>Geolocation failed. Please enable location access.</h1>";
+            resultSpan.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    );
 }
 
 function initTimeControls() {
