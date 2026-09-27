@@ -154,20 +154,24 @@ function submitted() {
     const result = document.getElementById("result");
     if (userLat === null || userLong === null) {
         result.innerHTML = "<h1>Please share your location first.</h1>";
+        setTimeout(() => result.scrollIntoView({ behavior: "smooth", block: "start" }), 0);
         return;
     }
     const nameEntered = document.getElementById("text-box").value.trim().toLowerCase();
     const pl = planetsData.find(p => p.pl_name.toLowerCase() === nameEntered);
     if (!pl) {
         result.innerHTML = "<h1>Planet not found. Please enter the name of a planet from the Discover page.</h1>";
+        setTimeout(() => result.scrollIntoView({ behavior: "smooth", block: "start" }), 0);
         return;
     }
     const pos = calcPos(userLat, userLong, userTimestamp, pl.ra, pl.dec);
     const direction = getDirection(pos.azimuth);
     if (pos.altitude < 0) {
         result.innerHTML = `<h1>${pl.pl_name} is below the horizon.</h1>`;
+        setTimeout(() => result.scrollIntoView({ behavior: "smooth", block: "start" }), 0);
     } else {
         result.innerHTML = `<h1>${pl.pl_name} is about ${pos.altitude.toFixed(1)}° above the horizon towards the ${direction}.</h1>`;
+        setTimeout(() => result.scrollIntoView({ behavior: "smooth", block: "start" }), 0);
     }
 }
 
