@@ -13,7 +13,7 @@ async function loadPlanet() {
   const habitableO = await habitableORes.json();
 
   const planet = allPlanets.find(p => p.pl_name === name);
-  const medalists = [4456,3876,5704,3898,2890,623,4145,1746,2612,4766,1613,574,2139]
+  const medalists = [4456,3876,5704,3898,2890,623,4145,1746,2612,4766,1613,574,2139,1009]
      .filter(i => allPlanets[i])
      .map(i => allPlanets[i]);
 
@@ -136,6 +136,8 @@ if (favBtn) {
       medal.innerHTML = '<h4>Largest Gravity</h4>';
     } else if (planet.pl_name === medalists[12].pl_name) {
       medal.innerHTML = '<h4>Smallest Gravity</h4>';
+    } else if (planet.pl_name === medalists[13].pl_name) {
+      medal.innerHTML = '<h4>First Exoplanet <br> Discovered</h4>';
     }
     medal.innerHTML += '<h2>Medal Recipient<br></h2>';
 
